@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en" id="root-html" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In — AutoDiag</title>
+  <meta name="description" content="Sign in to your AutoDiag account to access your diagnostic dashboard, reports, and vehicle history.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  
+  <!-- Tailwind CSS & FontAwesome -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              DEFAULT: '#0F4C81',
+              light: '#1A6BB5',
+              dark: '#0A3660',
+            },
+            secondary: {
+              DEFAULT: '#F97316',
+              light: '#FB923C',
+              dark: '#EA580C',
+            }
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            display: ['Space Grotesk', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* CSS custom properties for styling harmony */
+    :root {
+      --clr-primary: #0F4C81;
+      --clr-secondary: #F97316;
+    }
+    .dark {
+      --clr-primary: #3B82F6;
+      --clr-secondary: #FB923C;
+    }
+    
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    
+    /* Animations */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in-up {
+      animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    /* Glassmorphism 2.0 */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(226, 232, 240, 0.8);
+    }
+    .dark .glass-card {
+      background: rgba(30, 41, 59, 0.7);
+      border: 1px solid rgba(51, 65, 85, 0.6);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col transition-colors duration-300 relative overflow-x-hidden">
+
+  <!-- Background decorative elements -->
+  <div class="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-primary/5 dark:bg-primary/10 rounded-full blur-[120px] pointer-events-none"></div>
+  <div class="absolute bottom-[-20%] right-[-10%] w-[50%] h-[50%] bg-secondary/5 dark:bg-secondary/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+  <!-- Top-right corner LTR/RTL and Dark Mode actions -->
+  <div class="absolute top-4 end-4 sm:top-6 sm:end-6 flex items-center gap-2 z-50">
+    <button id="auth-dir-btn" onclick="toggleAuthDir()" class="w-10 h-10 flex items-center justify-center rounded-xl bg-white/80 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-blue-400 hover:border-primary/30 dark:hover:border-blue-400/30 shadow-sm transition-all text-[11px] font-black" title="Toggle RTL/LTR">
+      LTR
+    </button>
+    <button id="auth-theme-btn" onclick="toggleAuthTheme()" class="w-10 h-10 flex items-center justify-center rounded-xl bg-white/80 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-blue-400 hover:border-primary/30 dark:hover:border-blue-400/30 shadow-sm transition-all" title="Toggle Theme">
+      <i class="fas fa-moon text-sm"></i>
+    </button>
+  </div>
+
+  <!-- Login Card container -->
+  <main class="flex-grow flex items-center justify-center px-4 py-12 z-10 relative">
+    <div class="w-full max-w-[460px] animate-fade-in-up">
+      <div class="glass-card rounded-[2rem] p-8 sm:p-10 shadow-2xl relative overflow-hidden">
+        <!-- Accent decorative glow inside card -->
+        <div class="absolute -top-16 -right-16 w-36 h-36 bg-primary/10 dark:bg-primary/20 rounded-full blur-2xl pointer-events-none"></div>
+
+        <!-- Logo inside the card -->
+        <div class="flex flex-col items-center mb-6 relative">
+          <a href="index.html" class="flex items-center gap-2.5 group">
+            <div class="transition-transform duration-500 group-hover:rotate-[180deg]">
+              <svg class="w-9 h-9" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="36" height="36" rx="8" fill="currentColor" class="text-primary dark:text-blue-500"/>
+                <path d="M8 18C8 12.477 12.477 8 18 8C23.523 8 28 12.477 28 18" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+                <path d="M12 18C12 14.686 14.686 12 18 12C21.314 12 24 14.686 24 18" stroke="white" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+                <circle cx="18" cy="18" r="3" fill="#F97316" class="fill-secondary"/>
+                <line x1="18" y1="21" x2="18" y2="28" stroke="#F97316" stroke-width="2.5" stroke-linecap="round" class="stroke-secondary"/>
+                <line x1="14" y1="26" x2="22" y2="26" stroke="white" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+              </svg>
+            </div>
+            <span class="font-extrabold text-2xl text-slate-800 dark:text-white tracking-tight" style="font-family: 'Space Grotesk', sans-serif;">
+              Auto<span class="text-secondary dark:text-orange-400">Diag</span>
+            </span>
+          </a>
+        </div>
+
+        <div class="text-center mb-8">
+          <h2 class="text-2xl font-extrabold tracking-tight text-slate-900 dark:text-white font-display">Welcome Back</h2>
+          <p class="text-slate-500 dark:text-slate-400 text-sm mt-2">Sign in to your AutoDiag account</p>
+        </div>
+
+        <!-- Social login buttons -->
+        <div class="space-y-3 mb-6">
+          <button id="login-google" class="w-full flex items-center justify-center gap-3 py-3 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-850 hover:border-slate-300 dark:hover:border-slate-700 active:scale-[0.98] transition-all text-sm font-semibold text-slate-700 dark:text-slate-300">
+            <svg class="w-5 h-5" viewBox="0 0 24 24">
+              <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+              <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+              <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+              <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+            </svg>
+            Continue with Google
+          </button>
+          <button id="login-apple" class="w-full flex items-center justify-center gap-3 py-3 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-850 hover:border-slate-300 dark:hover:border-slate-700 active:scale-[0.98] transition-all text-sm font-semibold text-slate-700 dark:text-slate-300">
+            <i class="fab fa-apple text-lg text-slate-900 dark:text-white"></i>
+            Continue with Apple
+          </button>
+        </div>
+
+        <div class="flex items-center gap-4 mb-6">
+          <div class="flex-1 h-px bg-slate-200 dark:bg-slate-800"></div>
+          <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">or email</span>
+          <div class="flex-1 h-px bg-slate-200 dark:bg-slate-800"></div>
+        </div>
+
+        <!-- Form -->
+        <form id="login-form" onsubmit="submitLogin(event)" class="space-y-5">
+          <!-- Email Input -->
+          <div>
+            <label for="login-email" class="block text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-1.5">Email Address</label>
+            <div class="relative">
+              <input id="login-email" type="email" placeholder="you@example.com" class="w-full py-3.5 ps-11 pe-4 text-sm rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-900 dark:text-white outline-none focus:border-primary dark:focus:border-blue-500 focus:ring-1 focus:ring-primary/20 dark:focus:ring-blue-500/20 transition-all" required>
+              <i class="fas fa-envelope absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+            </div>
+          </div>
+
+          <!-- Password Input -->
+          <div>
+            <label for="login-password" class="block text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-1.5">Password</label>
+            <div class="relative">
+              <input id="login-password" type="password" placeholder="••••••••" class="w-full py-3.5 ps-11 pe-12 text-sm rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-900 dark:text-white outline-none focus:border-primary dark:focus:border-blue-500 focus:ring-1 focus:ring-primary/20 dark:focus:ring-blue-500/20 transition-all" required>
+              <i class="fas fa-lock absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+              <button type="button" onclick="togglePwd('login-password', 'eye-icon')" class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-primary dark:hover:text-blue-500 transition-colors" aria-label="Toggle password visibility">
+                <i class="fas fa-eye text-sm" id="eye-icon"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Row for Remember + Forgot -->
+          <div class="flex items-center justify-between text-xs sm:text-sm pt-1">
+            <label class="flex items-center gap-2 cursor-pointer select-none">
+              <input type="checkbox" id="remember-me" class="w-4 h-4 rounded border-slate-300 dark:border-slate-800 text-primary dark:text-blue-500 focus:ring-primary/30 accent-primary dark:accent-blue-500">
+              <span class="text-slate-500 dark:text-slate-400 font-medium">Remember Me</span>
+            </label>
+            <a href="#" class="forgot-link text-primary dark:text-blue-400 hover:text-primary-light dark:hover:text-blue-300 font-bold hover:underline transition-colors">Forgot Password?</a>
+          </div>
+
+          <!-- Error Alert (hidden by default) -->
+          <div id="login-error" class="hidden p-3.5 bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-900/50 rounded-xl text-red-600 dark:text-red-400 text-xs font-bold text-center">
+            Invalid email or password. Please try again.
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" id="login-submit" class="w-full py-4 bg-primary hover:bg-primary-light dark:bg-blue-600 dark:hover:bg-blue-500 text-white font-bold text-sm rounded-xl transition-all shadow-lg shadow-primary/20 dark:shadow-blue-500/10 active:scale-[0.99] flex items-center justify-center gap-2">
+            <span>Sign In</span>
+            <i class="fas fa-arrow-right text-xs"></i>
+          </button>
+        </form>
+
+        <p class="text-center text-sm text-slate-500 dark:text-slate-400 mt-8">
+          Don't have an account? <a href="signup.html" class="text-primary dark:text-blue-400 font-extrabold hover:underline">Sign Up</a>
+        </p>
+      </div>
+      
+      <p class="text-center text-xs text-slate-400/60 mt-6">
+        &copy; 2026 AutoDiag · <a href="#" class="hover:underline">Privacy Policy</a> · <a href="#" class="hover:underline">Terms</a>
+      </p>
+    </div>
+  </main>
+
+  <!-- Script logics -->
+  <script>
+    const THEME_KEY = 'mds-theme';
+    const DIR_KEY = 'mds-dir';
+
+    // Theme toggler
+    function toggleAuthTheme() {
+      const html = document.documentElement;
+      const btn = document.getElementById('auth-theme-btn');
+      const isDark = html.classList.contains('dark');
+      
+      if (isDark) {
+        html.classList.remove('dark');
+        html.setAttribute('data-theme', 'light');
+        localStorage.setItem(THEME_KEY, 'light');
+        btn.querySelector('i').className = 'fas fa-moon text-sm';
+      } else {
+        html.classList.add('dark');
+        html.setAttribute('data-theme', 'dark');
+        localStorage.setItem(THEME_KEY, 'dark');
+        btn.querySelector('i').className = 'fas fa-sun text-sm text-yellow-400';
+      }
+    }
+
+    // Direction toggler
+    function toggleAuthDir() {
+      const html = document.documentElement;
+      const btn = document.getElementById('auth-dir-btn');
+      const currentDir = html.getAttribute('dir') || 'ltr';
+      const nextDir = currentDir === 'rtl' ? 'ltr' : 'rtl';
+      
+      html.setAttribute('dir', nextDir);
+      localStorage.setItem(DIR_KEY, nextDir);
+      btn.textContent = nextDir.toUpperCase();
+    }
+
+    // Password visibility toggler
+    function togglePwd(inputId, iconId) {
+      const input = document.getElementById(inputId);
+      const icon = document.getElementById(iconId);
+      
+      if (input.type === 'password') {
+        input.type = 'text';
+        icon.className = 'fas fa-eye-slash text-sm';
+      } else {
+        input.type = 'password';
+        icon.className = 'fas fa-eye text-sm';
+      }
+    }
+
+    // Submit handler
+    function submitLogin(event) {
+      event.preventDefault();
+      const btn = document.getElementById('login-submit');
+      
+      btn.disabled = true;
+      btn.innerHTML = '<i class="fas fa-circle-notch animate-spin text-sm"></i> <span>Signing in...</span>';
+      
+      setTimeout(() => {
+        window.location.href = 'dashboard.html';
+      }, 1200);
+    }
+
+    // Initialize state
+    (function init() {
+      const html = document.documentElement;
+      
+      // Theme
+      const storedTheme = localStorage.getItem(THEME_KEY);
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (storedTheme === 'dark' || (!storedTheme && prefersDark)) {
+        html.classList.add('dark');
+        html.setAttribute('data-theme', 'dark');
+        const icon = document.getElementById('auth-theme-btn').querySelector('i');
+        if (icon) icon.className = 'fas fa-sun text-sm text-yellow-400';
+      } else {
+        html.classList.remove('dark');
+        html.setAttribute('data-theme', 'light');
+        const icon = document.getElementById('auth-theme-btn').querySelector('i');
+        if (icon) icon.className = 'fas fa-moon text-sm';
+      }
+
+      // Direction
+      const storedDir = localStorage.getItem(DIR_KEY);
+      if (storedDir === 'rtl') {
+        html.setAttribute('dir', 'rtl');
+        document.getElementById('auth-dir-btn').textContent = 'RTL';
+      } else {
+        html.setAttribute('dir', 'ltr');
+        document.getElementById('auth-dir-btn').textContent = 'LTR';
+      }
+    })();
+  </script>
+</body>
+</html>

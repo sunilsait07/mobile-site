@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us — AutoDiag Mobile Diagnostic Service</title>
+  <meta name="description" content="Get in touch with AutoDiag. Schedule a mobile diagnostic, ask questions, or request a fleet quote. We're here to help.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/home1.css">
+  <style>
+    /* Contact Page Specific Styles */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: var(--space-2xl);
+      align-items: start;
+    }
+    .contact-info-cards {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+    .contact-info-card {
+      background: var(--clr-surface);
+      border: 1px solid var(--clr-surface-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-lg);
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-md);
+      transition: all var(--transition-base);
+    }
+    .contact-info-card:hover {
+      border-color: rgba(var(--clr-primary-rgb), 0.3);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+    .contact-info-card .info-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .contact-info-card .info-icon svg {
+      width: 22px;
+      height: 22px;
+    }
+    .contact-info-card h4 {
+      margin-bottom: 4px;
+      font-size: var(--fs-base);
+    }
+    .contact-info-card p, .contact-info-card a {
+      font-size: var(--fs-sm);
+      color: var(--clr-text-secondary);
+    }
+    .contact-info-card a:hover {
+      color: var(--clr-primary);
+    }
+    .contact-form-card {
+      background: var(--clr-surface);
+      border: 1px solid var(--clr-surface-border);
+      border-radius: var(--radius-xl);
+      padding: var(--space-xl);
+      box-shadow: var(--shadow-md);
+    }
+    .contact-form-card h3 {
+      font-size: var(--fs-xl);
+      margin-bottom: var(--space-xs);
+    }
+    .contact-form-card .form-subtitle {
+      color: var(--clr-text-secondary);
+      font-size: var(--fs-sm);
+      margin-bottom: var(--space-lg);
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-md);
+    }
+    .contact-form-card textarea.form-input {
+      min-height: 120px;
+      resize: vertical;
+    }
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: var(--space-2xl) var(--space-lg);
+    }
+    .form-success.show {
+      display: block;
+    }
+    .form-success .success-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: rgba(16, 185, 129, 0.1);
+      color: var(--clr-success);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto var(--space-md);
+    }
+    .form-success .success-icon svg {
+      width: 32px;
+      height: 32px;
+    }
+    .hours-card {
+      background: linear-gradient(135deg, rgba(var(--clr-primary-rgb), 0.05), rgba(var(--clr-secondary-rgb), 0.05));
+      border: 1px solid var(--clr-surface-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-lg);
+    }
+    .hours-card h4 {
+      margin-bottom: var(--space-sm);
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
+    }
+    .hours-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: var(--fs-sm);
+      padding: var(--space-2xs) 0;
+      border-bottom: 1px solid var(--clr-surface-border);
+    }
+    .hours-row:last-child {
+      border-bottom: none;
+    }
+    .hours-row .day {
+      color: var(--clr-text);
+      font-weight: var(--fw-medium);
+    }
+    .hours-row .time {
+      color: var(--clr-text-secondary);
+    }
+    @media (max-width: 768px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Dispatch Hub Cards */
+    .hub-filters .btn {
+      transition: all var(--transition-base);
+    }
+    .hub-filters .btn.active {
+      background: var(--clr-primary);
+      border-color: var(--clr-primary);
+      color: #FFFFFF;
+    }
+    .hubs-grid {
+      margin-top: var(--space-xl);
+    }
+    .hub-card:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-4px);
+      border-color: rgba(var(--clr-primary-rgb), 0.3);
+    }
+    .queue-status .pulse-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--clr-success);
+      border-radius: 50%;
+      display: inline-block;
+      position: relative;
+    }
+    .queue-status .pulse-dot::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: inherit;
+      border-radius: 50%;
+      top: 0;
+      left: 0;
+      animation: pulse-dot-anim 1.5s infinite ease-in-out;
+    }
+    .queue-status .pulse-dot.busy {
+      background: var(--clr-secondary);
+    }
+    @keyframes pulse-dot-anim {
+      0% { transform: scale(1); opacity: 0.8; }
+      100% { transform: scale(2.2); opacity: 0; }
+    }
+    
+    @media (max-width: 992px) {
+      .hubs-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+    }
+    .map-wrapper {
+      height: 450px;
+      position: relative;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      border: 1px solid var(--clr-surface-border);
+      box-shadow: var(--shadow-lg);
+    }
+    @media (max-width: 768px) {
+      .map-wrapper {
+        height: 320px;
+      }
+    }
+    @media (max-width: 576px) {
+      .hubs-grid {
+        grid-template-columns: 1fr !important;
+      }
+      .hub-filters {
+        flex-wrap: wrap;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== NAVBAR ========== -->
+  <div id="navbar-container"></div>
+
+  <main>
+    <!-- ========== CONTACT HERO ========== -->
+    <section class="hero section" id="contact-hero" style="min-height: 50vh;">
+      <div class="hero-bg-pattern"></div>
+      <div class="container" style="text-align: center; max-width: 660px;">
+        <div class="hero-badge" style="margin: 0 auto var(--space-lg);">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          Get in Touch
+        </div>
+        <h1 style="font-size: var(--fs-4xl); margin-bottom: var(--space-md);">We'd Love to <span class="highlight">Hear</span> From You</h1>
+        <p class="hero-desc" style="max-width: 520px; margin: 0 auto;">Have a question, need a quote, or want to schedule a diagnostic? Reach out and we'll get back to you within the hour.</p>
+      </div>
+    </section>
+
+    <!-- ========== CONTACT CONTENT ========== -->
+    <section class="section" id="contact-content" style="background: var(--clr-bg-alt);">
+      <div class="container">
+        <div class="contact-grid">
+          <!-- Left: Info Cards -->
+          <div class="contact-info-cards">
+            <div class="contact-info-card anim-fade-left anim-delay-1">
+              <div class="info-icon" style="background: rgba(var(--clr-primary-rgb), 0.1); color: var(--clr-primary);">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+              <div>
+                <h4>Call Us</h4>
+                <p><a href="tel:+15551234567">+1 (555) 123-4567</a></p>
+                <p style="font-size: 12px; color: var(--clr-text-tertiary); margin-top: 4px;">Mon–Sat, 7 AM – 8 PM</p>
+              </div>
+            </div>
+
+            <div class="contact-info-card anim-fade-left anim-delay-2">
+              <div class="info-icon" style="background: rgba(var(--clr-secondary-rgb), 0.1); color: var(--clr-secondary);">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div>
+                <h4>Email Us</h4>
+                <p><a href="mailto:support@autodiag.com">support@autodiag.com</a></p>
+                <p style="font-size: 12px; color: var(--clr-text-tertiary); margin-top: 4px;">Response within 1 hour</p>
+              </div>
+            </div>
+
+            <div class="contact-info-card anim-fade-left anim-delay-3">
+              <div class="info-icon" style="background: rgba(16, 185, 129, 0.1); color: var(--clr-success);">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div>
+                <h4>Service Area</h4>
+                <p>50+ cities nationwide</p>
+                <p style="font-size: 12px; color: var(--clr-text-tertiary); margin-top: 4px;">We come to your location</p>
+              </div>
+            </div>
+
+            <!-- Business Hours -->
+            <div class="hours-card anim-fade-left anim-delay-4">
+              <h4>
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                Business Hours
+              </h4>
+              <div class="hours-list">
+                <div class="hours-row"><span class="day">Monday – Friday</span><span class="time">7:00 AM – 8:00 PM</span></div>
+                <div class="hours-row"><span class="day">Saturday</span><span class="time">8:00 AM – 6:00 PM</span></div>
+                <div class="hours-row"><span class="day">Sunday</span><span class="time">9:00 AM – 4:00 PM</span></div>
+                <div class="hours-row"><span class="day">Emergency</span><span class="time" style="color: var(--clr-secondary); font-weight: var(--fw-semibold);">24/7 Available</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Contact Form -->
+          <div class="contact-form-card anim-fade-right">
+            <h3>Send Us a Message</h3>
+            <p class="form-subtitle">Fill out the form and we'll get back to you within 1 business hour.</p>
+
+            <form id="contact-form" onsubmit="event.preventDefault(); document.getElementById('contact-form').style.display='none'; document.getElementById('form-success').classList.add('show');">
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="contact-name">Full Name</label>
+                  <input type="text" class="form-input" id="contact-name" placeholder="Your name" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="contact-email">Email Address</label>
+                  <input type="email" class="form-input" id="contact-email" placeholder="you@example.com" required>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="contact-phone">Phone Number</label>
+                  <input type="tel" class="form-input" id="contact-phone" placeholder="+1 (555) 000-0000">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="contact-subject">Subject</label>
+                  <select class="form-select" id="contact-subject">
+                    <option value="">Select a topic</option>
+                    <option value="diagnostic">Schedule a Diagnostic</option>
+                    <option value="fleet">Fleet Pricing Quote</option>
+                    <option value="support">Technical Support</option>
+                    <option value="general">General Inquiry</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="contact-message">Message</label>
+                <textarea class="form-input" id="contact-message" placeholder="Tell us how we can help..." rows="5" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary btn-lg btn-block" id="contact-submit">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                Send Message
+              </button>
+            </form>
+
+            <div class="form-success" id="form-success">
+              <div class="success-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              </div>
+              <h3 style="margin-bottom: var(--space-xs);">Message Sent!</h3>
+              <p style="color: var(--clr-text-secondary); font-size: var(--fs-sm);">Thank you for reaching out. Our team will get back to you within 1 hour.</p>
+            </div>
+          </div>
+        </div>
+    </section>
+
+    <!-- ========== COVERAGE MAP ========== -->
+    <section class="section" id="coverage-map" style="background: var(--clr-bg-alt); padding-top: 0;">
+      <div class="container anim-fade-up">
+        <div class="map-wrapper">
+          <iframe src="https://maps.google.com/maps?q=San%20Francisco,%20CA&t=&z=12&ie=UTF8&iwloc=&output=embed" style="width: 100%; height: 100%; border: 0; display: block;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <div class="map-overlay" style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(15, 23, 42, 0.85) 0%, rgba(15, 23, 42, 0.3) 50%, transparent 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: var(--space-xl); pointer-events: none;">
+            <div style="max-width: 550px;">
+              <span style="font-size: var(--fs-2xs); font-weight: var(--fw-bold); text-transform: uppercase; color: var(--clr-secondary); background: rgba(var(--clr-secondary-rgb), 0.15); padding: 6px 12px; border-radius: var(--radius-full); display: inline-flex; align-items: center; margin-bottom: var(--space-sm); border: 1px solid rgba(var(--clr-secondary-rgb), 0.25);">Active Coverage Zone</span>
+              <h3 style="font-size: var(--fs-xl); color: #FFFFFF; font-weight: var(--fw-bold); margin-bottom: var(--space-2xs); text-shadow: 0 2px 4px rgba(0,0,0,0.5);">Our Service Area Map</h3>
+              <p style="font-size: var(--fs-sm); color: rgba(255, 255, 255, 0.85); line-height: var(--lh-normal); text-shadow: 0 1px 2px rgba(0,0,0,0.3);">We operate dynamic dispatch centers across major metro sectors and surrounding suburbs. Wherever you are, our ASE-certified mobile mechanics will route to your exact GPS location within 30 to 45 minutes.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== DISPATCH HUB DIRECTORY ========== -->
+    <section class="section" id="dispatch-hubs" style="background: var(--clr-bg);">
+      <div class="container">
+        <div class="section-header anim-fade-up">
+          <span class="section-label">Local Hubs</span>
+          <h2>Local Dispatch Hub Directory</h2>
+          <p>Find wait times and contact info for our regional service centers coordinating our mobile fleet.</p>
+        </div>
+
+        <!-- Filter Toggles -->
+        <div class="hub-filters anim-fade-up" style="display: flex; justify-content: center; gap: var(--space-xs); margin-bottom: var(--space-xl);">
+          <button class="btn btn-sm btn-secondary hub-filter-btn active" data-region="all">All Regions</button>
+          <button class="btn btn-sm btn-secondary hub-filter-btn" data-region="north">North Sector</button>
+          <button class="btn btn-sm btn-secondary hub-filter-btn" data-region="south">South Sector</button>
+          <button class="btn btn-sm btn-secondary hub-filter-btn" data-region="east">East Sector</button>
+          <button class="btn btn-sm btn-secondary hub-filter-btn" data-region="west">West Sector</button>
+        </div>
+
+        <!-- Hubs Grid -->
+        <div class="hubs-grid" id="hubs-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-lg);">
+          <!-- North Hub -->
+          <div class="hub-card anim-fade-up anim-delay-1" data-region="north" style="background: var(--clr-surface); border: 1px solid var(--clr-surface-border); border-radius: var(--radius-xl); padding: var(--space-lg); display: flex; flex-direction: column; justify-content: space-between; transition: all var(--transition-base);">
+            <div>
+              <div class="hub-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-sm);">
+                <span style="font-size: var(--fs-2xs); font-weight: var(--fw-bold); text-transform: uppercase; color: var(--clr-primary); background: rgba(var(--clr-primary-rgb), 0.1); padding: 4px 10px; border-radius: var(--radius-full); display: inline-flex; align-items: center; line-height: 1;">North Sector</span>
+                <span class="queue-status active" style="font-size: var(--fs-2xs); display: inline-flex; align-items: center; gap: 4px; color: var(--clr-success); font-weight: var(--fw-semibold);"><span class="pulse-dot"></span>Low Wait</span>
+              </div>
+              <h3 style="font-size: var(--fs-md); margin-bottom: 4px;">North Dispatch</h3>
+              <p style="font-size: var(--fs-xs); color: var(--clr-text-secondary); margin-bottom: var(--space-md);"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle; margin-inline-end: 4px; color: var(--clr-text-tertiary);"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>4500 Business Center Dr</p>
+              
+              <div class="hub-stats" style="background: var(--clr-bg-alt); padding: var(--space-sm); border-radius: var(--radius-md); margin-bottom: var(--space-md);">
+                <div style="display: flex; justify-content: space-between; font-size: var(--fs-2xs); margin-bottom: 4px;">
+                  <span style="color: var(--clr-text-secondary);">Avg. Wait Time</span>
+                  <strong style="color: var(--clr-text);">12 Mins</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between; font-size: var(--fs-2xs);">
+                  <span style="color: var(--clr-text-secondary);">Active Mechanics</span>
+                  <strong style="color: var(--clr-text);">8 En Route</strong>
+                </div>
+              </div>
+            </div>
+            <a href="tel:+15550110" class="btn btn-secondary btn-sm btn-block"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-inline-end: 6px; vertical-align: middle;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Call Hub</a>
+          </div>
+
+          <!-- South Hub -->
+          <div class="hub-card anim-fade-up anim-delay-2" data-region="south" style="background: var(--clr-surface); border: 1px solid var(--clr-surface-border); border-radius: var(--radius-xl); padding: var(--space-lg); display: flex; flex-direction: column; justify-content: space-between; transition: all var(--transition-base);">
+            <div>
+              <div class="hub-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-sm);">
+                <span style="font-size: var(--fs-2xs); font-weight: var(--fw-bold); text-transform: uppercase; color: var(--clr-secondary); background: rgba(var(--clr-secondary-rgb), 0.1); padding: 4px 10px; border-radius: var(--radius-full); display: inline-flex; align-items: center; line-height: 1;">South Sector</span>
+                <span class="queue-status busy" style="font-size: var(--fs-2xs); display: inline-flex; align-items: center; gap: 4px; color: var(--clr-secondary); font-weight: var(--fw-semibold);"><span class="pulse-dot busy"></span>Busy</span>
+              </div>
+              <h3 style="font-size: var(--fs-md); margin-bottom: 4px;">South Dispatch</h3>
+              <p style="font-size: var(--fs-xs); color: var(--clr-text-secondary); margin-bottom: var(--space-md);"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle; margin-inline-end: 4px; color: var(--clr-text-tertiary);"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>1040 Innovation Pkwy</p>
+              
+              <div class="hub-stats" style="background: var(--clr-bg-alt); padding: var(--space-sm); border-radius: var(--radius-md); margin-bottom: var(--space-md);">
+                <div style="display: flex; justify-content: space-between; font-size: var(--fs-2xs); margin-bottom: 4px;">
+                  <span style="color: var(--clr-text-secondary);">Avg. Wait Time</span>
+                  <strong style="color: var(--clr-text);">35 Mins</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between; font-size: var(--fs-2xs);">
+                  <span style="color: var(--clr-text-secondary);">Active Mechanics</span>
+                  <strong style="color: var(--clr-text);">12 En Route</strong>
+                </div>
+              </div>
+            </div>
+            <a href="tel:+15550111" class="btn btn-secondary btn-sm btn-block"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-inline-end: 6px; vertical-align: middle;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Call Hub</a>
+          </div>
+
+          <!-- East Hub -->
+          <div class="hub-card anim-fade-up anim-delay-3" data-region="east" style="background: var(--clr-surface); border: 1px solid var(--clr-surface-border); border-radius: var(--radius-xl); padding: var(--space-lg); display: flex; flex-direction: column; justify-content: space-between; transition: all var(--transition-base);">
+            <div>
+              <div class="hub-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-sm);">
+                <span style="font-size: var(--fs-2xs); font-weight: var(--fw-bold); text-transform: uppercase; color: var(--clr-primary); background: rgba(var(--clr-primary-rgb), 0.1); padding: 4px 10px; border-radius: var(--radius-full); display: inline-flex; align-items: center; line-height: 1;">East Sector</span>
+                <span class="queue-status active" style="font-size: var(--fs-2xs); display: inline-flex; align-items: center; gap: 4px; color: var(--clr-success); font-weight: var(--fw-semibold);"><span class="pulse-dot"></span>Low Wait</span>
+              </div>
+              <h3 style="font-size: var(--fs-md); margin-bottom: 4px;">East Dispatch</h3>
+              <p style="font-size: var(--fs-xs); color: var(--clr-text-secondary); margin-bottom: var(--space-md);"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle; margin-inline-end: 4px; color: var(--clr-text-tertiary);"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>890 Commerce Blvd, Bldg B</p>
+              
+              <div class="hub-stats" style="background: var(--clr-bg-alt); padding: var(--space-sm); border-radius: var(--radius-md); margin-bottom: var(--space-md);">
+                <div style="display: flex; justify-content: space-between; font-size: var(--fs-2xs); margin-bottom: 4px;">
+                  <span style="color: var(--clr-text-secondary);">Avg. Wait Time</span>
+                  <strong style="color: var(--clr-text);">18 Mins</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between; font-size: var(--fs-2xs);">
+                  <span style="color: var(--clr-text-secondary);">Active Mechanics</span>
+                  <strong style="color: var(--clr-text);">5 En Route</strong>
+                </div>
+              </div>
+            </div>
+            <a href="tel:+15550112" class="btn btn-secondary btn-sm btn-block"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-inline-end: 6px; vertical-align: middle;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Call Hub</a>
+          </div>
+
+          <!-- West Hub -->
+          <div class="hub-card anim-fade-up anim-delay-4" data-region="west" style="background: var(--clr-surface); border: 1px solid var(--clr-surface-border); border-radius: var(--radius-xl); padding: var(--space-lg); display: flex; flex-direction: column; justify-content: space-between; transition: all var(--transition-base);">
+            <div>
+              <div class="hub-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-sm);">
+                <span style="font-size: var(--fs-2xs); font-weight: var(--fw-bold); text-transform: uppercase; color: var(--clr-secondary); background: rgba(var(--clr-secondary-rgb), 0.1); padding: 4px 10px; border-radius: var(--radius-full); display: inline-flex; align-items: center; line-height: 1;">West Sector</span>
+                <span class="queue-status busy" style="font-size: var(--fs-2xs); display: inline-flex; align-items: center; gap: 4px; color: var(--clr-secondary); font-weight: var(--fw-semibold);"><span class="pulse-dot busy"></span>Busy</span>
+              </div>
+              <h3 style="font-size: var(--fs-md); margin-bottom: 4px;">West Dispatch</h3>
+              <p style="font-size: var(--fs-xs); color: var(--clr-text-secondary); margin-bottom: var(--space-md);"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle; margin-inline-end: 4px; color: var(--clr-text-tertiary);"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>333 Pacific Ave, Suite 100</p>
+              
+              <div class="hub-stats" style="background: var(--clr-bg-alt); padding: var(--space-sm); border-radius: var(--radius-md); margin-bottom: var(--space-md);">
+                <div style="display: flex; justify-content: space-between; font-size: var(--fs-2xs); margin-bottom: 4px;">
+                  <span style="color: var(--clr-text-secondary);">Avg. Wait Time</span>
+                  <strong style="color: var(--clr-text);">28 Mins</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between; font-size: var(--fs-2xs);">
+                  <span style="color: var(--clr-text-secondary);">Active Mechanics</span>
+                  <strong style="color: var(--clr-text);">7 En Route</strong>
+                </div>
+              </div>
+            </div>
+            <a href="tel:+15550113" class="btn btn-secondary btn-sm btn-block"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-inline-end: 6px; vertical-align: middle;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Call Hub</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== FAQ CTA ========== -->
+    <section class="cta-banner section" id="contact-faq-cta">
+      <div class="container">
+        <div class="cta-banner-inner anim-scale-in">
+          <h2>Looking for Quick Answers?</h2>
+          <p>Check our FAQ section for instant answers to common diagnostic questions.</p>
+          <div class="cta-buttons">
+            <a href="index.html#faq" class="btn btn-accent btn-lg" id="faq-cta-btn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+              View FAQ
+            </a>
+            <a href="services.html#book" class="btn btn-cta-secondary btn-lg" id="book-cta-btn">Book a Diagnostic</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <div id="footer-container"></div>
+
+  <script src="js/theme.js"></script>
+  <script src="js/rtl.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/animations.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Hub filter logic
+      const filterButtons = document.querySelectorAll('.hub-filter-btn');
+      const hubCards = document.querySelectorAll('.hub-card');
+
+      filterButtons.forEach(btn => {
+        btn.addEventListener('click', function() {
+          // Remove active class from all buttons
+          filterButtons.forEach(b => b.classList.remove('active'));
+          this.classList.add('active');
+
+          const region = this.getAttribute('data-region');
+
+          hubCards.forEach(card => {
+            if (region === 'all' || card.getAttribute('data-region') === region) {
+              card.style.display = 'flex';
+              // Trigger simple fade-in effect
+              card.style.opacity = '0';
+              setTimeout(() => {
+                card.style.opacity = '1';
+              }, 50);
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+
+      // Parse subject parameter from URL (e.g. ?subject=fleet)
+      const urlParams = new URLSearchParams(window.location.search);
+      const subjectParam = urlParams.get('subject');
+      if (subjectParam) {
+        const subjectSelect = document.getElementById('contact-subject');
+        if (subjectSelect) {
+          subjectSelect.value = subjectParam;
+        }
+      }
+    });
+  </script>
+</body>
+</html>
+

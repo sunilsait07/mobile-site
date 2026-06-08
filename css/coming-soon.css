@@ -1,0 +1,230 @@
+/* ============================================
+   COMING SOON PAGE STYLES
+   ============================================ */
+
+.coming-soon-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--space-xl);
+  position: relative;
+  overflow: hidden;
+  background: var(--clr-bg);
+}
+
+/* Particle background */
+.cs-particles {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.cs-particle {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.15;
+}
+
+.cs-particle:nth-child(1) {
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(var(--clr-primary-rgb), 0.3), transparent);
+  top: 10%;
+  left: 20%;
+  animation: particleFloat1 20s ease-in-out infinite;
+}
+
+.cs-particle:nth-child(2) {
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(var(--clr-secondary-rgb), 0.3), transparent);
+  top: 60%;
+  right: 15%;
+  animation: particleFloat2 18s ease-in-out infinite;
+}
+
+.cs-particle:nth-child(3) {
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, rgba(var(--clr-primary-rgb), 0.2), transparent);
+  bottom: 10%;
+  left: 10%;
+  animation: particleFloat3 22s ease-in-out infinite;
+}
+
+.cs-particle:nth-child(4) {
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(var(--clr-secondary-rgb), 0.2), transparent);
+  top: 20%;
+  right: 30%;
+  animation: particleFloat1 25s ease-in-out infinite reverse;
+}
+
+/* Top toggles */
+.cs-top-actions {
+  position: fixed;
+  top: var(--space-md);
+  inset-inline-end: var(--space-md);
+  display: flex;
+  gap: var(--space-sm);
+  z-index: 100;
+}
+
+.cs-content {
+  position: relative;
+  z-index: 1;
+  max-width: 550px;
+}
+
+.cs-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-2xl);
+  text-decoration: none;
+}
+
+.cs-logo svg {
+  width: 44px;
+  height: 44px;
+}
+
+.cs-logo-text {
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-bold);
+  color: var(--clr-text);
+}
+
+.cs-logo-text span {
+  color: var(--clr-secondary);
+}
+
+.cs-content h1 {
+  font-size: var(--fs-5xl);
+  font-weight: var(--fw-extrabold);
+  margin-bottom: var(--space-md);
+  animation: fadeInUp 0.6s ease both;
+}
+
+.cs-content h1 .gradient-text {
+  display: block;
+}
+
+.cs-content .cs-desc {
+  font-size: var(--fs-md);
+  color: var(--clr-text-secondary);
+  margin-bottom: var(--space-2xl);
+  animation: fadeInUp 0.6s ease 0.1s both;
+}
+
+/* Countdown */
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-2xl);
+  animation: fadeInUp 0.6s ease 0.2s both;
+}
+
+.countdown-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.countdown-value {
+  font-size: var(--fs-4xl);
+  font-weight: var(--fw-extrabold);
+  color: var(--clr-primary);
+  line-height: 1;
+  min-width: 70px;
+}
+
+.countdown-label {
+  font-size: var(--fs-xs);
+  color: var(--clr-text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 4px;
+}
+
+.countdown-separator {
+  font-size: var(--fs-3xl);
+  font-weight: var(--fw-bold);
+  color: var(--clr-text-tertiary);
+  line-height: 1;
+  align-self: flex-start;
+  animation: blink 1.5s ease infinite;
+}
+
+/* Subscribe */
+.cs-subscribe {
+  display: flex;
+  gap: var(--space-sm);
+  max-width: 420px;
+  margin: 0 auto;
+  animation: fadeInUp 0.6s ease 0.3s both;
+}
+
+.cs-subscribe input {
+  flex: 1;
+  padding: 14px 18px;
+  border: 1.5px solid var(--clr-surface-border);
+  border-radius: var(--radius-md);
+  background: var(--clr-surface);
+  color: var(--clr-text);
+  font-size: var(--fs-sm);
+}
+
+.cs-subscribe input:focus {
+  border-color: var(--clr-primary);
+  box-shadow: 0 0 0 3px rgba(var(--clr-primary-rgb), 0.12);
+}
+
+.cs-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  margin-top: var(--space-xl);
+  font-size: var(--fs-sm);
+  color: var(--clr-text-secondary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+  animation: fadeInUp 0.6s ease 0.4s both;
+}
+
+.cs-back-link:hover {
+  color: var(--clr-primary);
+}
+
+.cs-back-link svg {
+  width: 16px;
+  height: 16px;
+}
+
+@media (max-width: 768px) {
+  .cs-content h1 {
+    font-size: var(--fs-2xl);
+  }
+
+  .countdown {
+    gap: var(--space-md);
+  }
+
+  .countdown-value {
+    font-size: var(--fs-2xl);
+    min-width: 50px;
+  }
+
+  .countdown-separator {
+    font-size: var(--fs-xl);
+  }
+
+  .cs-subscribe {
+    flex-direction: column;
+  }
+}

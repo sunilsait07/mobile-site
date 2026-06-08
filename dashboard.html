@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Dashboard — AutoDiag</title>
+  <meta name="description" content="Manage your vehicle diagnostics, schedule scans, view reports, and track mechanics from your AutoDiag dashboard.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+  <div class="dashboard-layout">
+    <!-- Sidebar Overlay (mobile) -->
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <!-- ========== SIDEBAR ========== -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="index.html" class="sidebar-logo" title="AutoDiag">
+          <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="36" height="36" rx="8" fill="currentColor" style="color: var(--clr-primary)"/><path d="M8 18C8 12.477 12.477 8 18 8C23.523 8 28 12.477 28 18" stroke="white" stroke-width="2.5" stroke-linecap="round"/><path d="M12 18C12 14.686 14.686 12 18 12C21.314 12 24 14.686 24 18" stroke="white" stroke-width="2" stroke-linecap="round" opacity="0.7"/><circle cx="18" cy="18" r="3" fill="#F97316"/><line x1="18" y1="21" x2="18" y2="28" stroke="#F97316" stroke-width="2.5" stroke-linecap="round"/><line x1="14" y1="26" x2="22" y2="26" stroke="white" stroke-width="2" stroke-linecap="round" opacity="0.5"/></svg>
+          <div class="sidebar-logo-text">Auto<span>Diag</span></div>
+        </a>
+      </div>
+      <nav class="sidebar-nav" id="sidebar-nav">
+      </nav>
+      <div class="sidebar-footer">
+        <div class="sidebar-user" title="John Doe (john@example.com)">
+          <div class="avatar">JD</div>
+          <div class="user-info">
+            <div class="user-name">John Doe</div>
+            <div class="user-email">john@example.com</div>
+          </div>
+        </div>
+        <button class="sidebar-logout-btn" id="logout-btn" title="Logout">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+          <span>Logout</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- ========== MAIN CONTENT ========== -->
+    <div class="dashboard-main">
+      <!-- Top Bar -->
+      <header class="dashboard-topbar">
+        <div class="topbar-left">
+          <button class="sidebar-toggle-btn" id="sidebar-toggle" aria-label="Toggle sidebar">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+          <h2 class="topbar-title">Dashboard</h2>
+        </div>
+        <div class="topbar-right">
+          <button class="nav-toggle-btn theme-toggle" aria-label="Toggle theme">
+            <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          </button>
+          <button class="nav-toggle-btn rtl-toggle" aria-label="Toggle RTL">
+            <svg class="icon-exchange" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 17H4M4 17l4 4M4 17l4-4M4 7h16M20 7l-4-4M20 7l-4 4" /></svg>
+          </button>
+          <button class="nav-toggle-btn notification-dot" aria-label="Notifications">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+          </button>
+          <div class="avatar">JD</div>
+        </div>
+      </header>
+
+      <div class="dashboard-content">
+        <!-- ====== DASHBOARD HOME ====== -->
+        <div class="dash-page active" id="dash-home">
+          <div class="welcome-banner">
+            <div><h2>Welcome back, John!</h2><p>Here's an overview of your vehicle diagnostics and upcoming appointments.</p></div>
+            <button class="btn btn-accent" onclick="document.querySelector('[data-page=dash-schedule]').click()">Schedule Scan</button>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric-card"><div class="metric-icon" style="background:rgba(var(--clr-primary-rgb),0.1); color:var(--clr-primary)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><div><div class="metric-value">3</div><div class="metric-label">Active Scans</div></div></div>
+            <div class="metric-card"><div class="metric-icon" style="background:rgba(var(--clr-secondary-rgb),0.1); color:var(--clr-secondary)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div><div class="metric-value">2</div><div class="metric-label">Pending Repairs</div></div></div>
+            <div class="metric-card"><div class="metric-icon" style="background:rgba(16,185,129,0.1); color:var(--clr-success)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div><div><div class="metric-value">4</div><div class="metric-label">Vehicles Registered</div></div></div>
+            <div class="metric-card"><div class="metric-icon" style="background:rgba(var(--clr-primary-rgb),0.1); color:var(--clr-primary)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div><div class="metric-value">27</div><div class="metric-label">Total Diagnostics</div></div></div>
+          </div>
+          <div class="dash-section">
+            <div class="dash-section-header"><h3>Upcoming Appointments</h3><button class="btn btn-secondary btn-sm" onclick="document.querySelector('[data-page=dash-schedule]').click()">View All</button></div>
+            <div class="table-wrapper"><table class="table"><thead><tr><th>Vehicle</th><th>Service</th><th>Date</th><th>Time</th><th>Status</th></tr></thead><tbody>
+              <tr><td>Toyota Camry 2022</td><td>OBD2 Diagnostics</td><td>Jun 12, 2026</td><td>10:00 AM</td><td><span class="badge badge-primary">Scheduled</span></td></tr>
+              <tr><td>Honda Accord 2021</td><td>Check Engine Light</td><td>Jun 14, 2026</td><td>2:00 PM</td><td><span class="badge badge-primary">Scheduled</span></td></tr>
+              <tr><td>Ford F-150 2023</td><td>Emissions Testing</td><td>Jun 18, 2026</td><td>9:00 AM</td><td><span class="badge badge-warning">Pending</span></td></tr>
+            </tbody></table></div>
+          </div>
+          <div class="dash-section">
+            <div class="dash-section-header">
+              <h3>My Registered Vehicles &amp; Health Index</h3>
+            </div>
+            <div class="vehicles-health-grid">
+              <!-- Camry -->
+              <div class="vehicle-health-card">
+                <div class="vehicle-health-header">
+                  <div class="vh-logo-wrap">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="22" height="13" rx="2" ry="2"/><path d="M22 17H2c0 2 2 4 4 4h12c2 0 4-2 4-4z"/></svg>
+                  </div>
+                  <div>
+                    <h4>Toyota Camry 2022</h4>
+                    <p class="vh-subtext">Plate: 7XYZ89 · Connected</p>
+                  </div>
+                  <span class="badge badge-success" style="margin-inline-start: auto;">Clear</span>
+                </div>
+                <div class="vh-progress-section">
+                  <div class="vh-progress-header">
+                    <span>System Integrity</span>
+                    <strong>98%</strong>
+                  </div>
+                  <div class="vh-progress-bar-bg">
+                    <div class="vh-progress-bar-fill success" style="width: 98%;"></div>
+                  </div>
+                </div>
+                <div class="vh-stats-grid">
+                  <div class="vh-stat-item"><span>Battery</span><strong>12.6V</strong></div>
+                  <div class="vh-stat-item"><span>Coolant</span><strong>92°C</strong></div>
+                  <div class="vh-stat-item"><span>Tires</span><strong>32 PSI</strong></div>
+                </div>
+              </div>
+
+              <!-- Accord -->
+              <div class="vehicle-health-card">
+                <div class="vehicle-health-header">
+                  <div class="vh-logo-wrap attention">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="22" height="13" rx="2" ry="2"/><path d="M22 17H2c0 2 2 4 4 4h12c2 0 4-2 4-4z"/></svg>
+                  </div>
+                  <div>
+                    <h4>Honda Accord 2021</h4>
+                    <p class="vh-subtext">Plate: 3ABC12 · Attention Needed</p>
+                  </div>
+                  <span class="badge badge-warning" style="margin-inline-start: auto;">2 Codes</span>
+                </div>
+                <div class="vh-progress-section">
+                  <div class="vh-progress-header">
+                    <span>System Integrity</span>
+                    <strong>78%</strong>
+                  </div>
+                  <div class="vh-progress-bar-bg">
+                    <div class="vh-progress-bar-fill warning" style="width: 78%;"></div>
+                  </div>
+                </div>
+                <div class="vh-stats-grid">
+                  <div class="vh-stat-item"><span>Battery</span><strong>12.1V</strong></div>
+                  <div class="vh-stat-item"><span>Coolant</span><strong>99°C</strong></div>
+                  <div class="vh-stat-item"><span>Tires</span><strong>29 PSI</strong></div>
+                </div>
+              </div>
+
+              <!-- F-150 -->
+              <div class="vehicle-health-card">
+                <div class="vehicle-health-header">
+                  <div class="vh-logo-wrap error">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="22" height="13" rx="2" ry="2"/><path d="M22 17H2c0 2 2 4 4 4h12c2 0 4-2 4-4z"/></svg>
+                  </div>
+                  <div>
+                    <h4>Ford F-150 2023</h4>
+                    <p class="vh-subtext">Plate: 9FED45 · Offline</p>
+                  </div>
+                  <span class="badge badge-error" style="margin-inline-start: auto;">Critical</span>
+                </div>
+                <div class="vh-progress-section">
+                  <div class="vh-progress-header">
+                    <span>System Integrity</span>
+                    <strong>45%</strong>
+                  </div>
+                  <div class="vh-progress-bar-bg">
+                    <div class="vh-progress-bar-fill error" style="width: 45%;"></div>
+                  </div>
+                </div>
+                <div class="vh-stats-grid">
+                  <div class="vh-stat-item"><span>Battery</span><strong>11.4V</strong></div>
+                  <div class="vh-stat-item"><span>Coolant</span><strong>104°C</strong></div>
+                  <div class="vh-stat-item"><span>Tires</span><strong>30 PSI</strong></div>
+                </div>
+              </div>
+
+              <!-- BMW X5 -->
+              <div class="vehicle-health-card">
+                <div class="vehicle-health-header">
+                  <div class="vh-logo-wrap">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="22" height="13" rx="2" ry="2"/><path d="M22 17H2c0 2 2 4 4 4h12c2 0 4-2 4-4z"/></svg>
+                  </div>
+                  <div>
+                    <h4>BMW X5 2020</h4>
+                    <p class="vh-subtext">Plate: 5KSM78 · Connected</p>
+                  </div>
+                  <span class="badge badge-success" style="margin-inline-start: auto;">Clear</span>
+                </div>
+                <div class="vh-progress-section">
+                  <div class="vh-progress-header">
+                    <span>System Integrity</span>
+                    <strong>95%</strong>
+                  </div>
+                  <div class="vh-progress-bar-bg">
+                    <div class="vh-progress-bar-fill success" style="width: 95%;"></div>
+                  </div>
+                </div>
+                <div class="vh-stats-grid">
+                  <div class="vh-stat-item"><span>Battery</span><strong>12.7V</strong></div>
+                  <div class="vh-stat-item"><span>Coolant</span><strong>90°C</strong></div>
+                  <div class="vh-stat-item"><span>Tires</span><strong>34 PSI</strong></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="dash-section">
+            <div class="dash-section-header"><h3>Quick Actions</h3></div>
+            <div class="quick-actions">
+              <div class="quick-action-card" onclick="document.querySelector('[data-page=dash-schedule]').click()"><div class="qa-icon" style="background:rgba(var(--clr-primary-rgb),0.1); color:var(--clr-primary)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div><h4>Schedule Scan</h4><p>Book a new diagnostic</p></div>
+              <div class="quick-action-card" onclick="document.querySelector('[data-page=dash-reports]').click()"><div class="qa-icon" style="background:rgba(var(--clr-secondary-rgb),0.1); color:var(--clr-secondary)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><h4>View Reports</h4><p>Access diagnostic reports</p></div>
+              <div class="quick-action-card" onclick="document.querySelector('[data-page=dash-track]').click()"><div class="qa-icon" style="background:rgba(16,185,129,0.1); color:var(--clr-success)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><h4>Track Mechanic</h4><p>Live mechanic tracking</p></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ====== SCHEDULE SCAN ====== -->
+        <div class="dash-page" id="dash-schedule">
+          <h3 style="margin-bottom:var(--space-lg)">Schedule a Diagnostic Scan</h3>
+          <div class="schedule-form">
+            <div class="form-group"><label class="form-label">Select Vehicle</label><select class="form-select"><option>Toyota Camry 2022</option><option>Honda Accord 2021</option><option>Ford F-150 2023</option><option>BMW X5 2020</option></select></div>
+            <div class="form-group"><label class="form-label">Service Type</label><select class="form-select"><option>OBD2 Diagnostics</option><option>Check Engine Light</option><option>Emissions Testing</option><option>Pre-Purchase Inspection</option><option>Engine Performance</option><option>Electrical Diagnostics</option></select></div>
+            <div class="form-row"><div class="form-group"><label class="form-label">Date</label><input type="date" class="form-input"></div><div class="form-group"><label class="form-label">Time</label><select class="form-select"><option>Morning (8AM-12PM)</option><option>Afternoon (12PM-5PM)</option><option>Evening (5PM-8PM)</option></select></div></div>
+            <div class="form-group"><label class="form-label">Location</label><input type="text" class="form-input" placeholder="Enter service address"></div>
+            <div class="form-group"><label class="form-label">Notes (Optional)</label><textarea class="form-input" rows="3" placeholder="Any specific concerns or issues..."></textarea></div>
+            <button class="btn btn-primary btn-block btn-lg">Schedule Scan</button>
+          </div>
+        </div>
+
+        <!-- ====== DIAGNOSTIC REPORTS ====== -->
+        <div class="dash-page" id="dash-reports">
+          <h3 style="margin-bottom:var(--space-lg)">Diagnostic Reports</h3>
+          <div class="reports-grid">
+            <div class="report-card"><div class="report-card-header"><div><h4>Toyota Camry 2022</h4><p style="font-size:var(--fs-xs); color:var(--clr-text-tertiary)">Report #RPT-2024-001</p></div><span class="badge badge-success">Clear</span></div><div class="report-card-details"><div class="report-detail"><strong>Date:</strong> Jun 5, 2026</div><div class="report-detail"><strong>Codes:</strong> 0 found</div><div class="report-detail"><strong>Status:</strong> All systems normal</div><div class="report-detail"><strong>Mechanic:</strong> Mike S.</div></div><div class="report-card-actions"><button class="btn btn-secondary btn-sm">View Full Report</button><button class="btn btn-ghost btn-sm">Download PDF</button></div></div>
+            <div class="report-card"><div class="report-card-header"><div><h4>Honda Accord 2021</h4><p style="font-size:var(--fs-xs); color:var(--clr-text-tertiary)">Report #RPT-2024-002</p></div><span class="badge badge-warning">Attention</span></div><div class="report-card-details"><div class="report-detail"><strong>Date:</strong> Jun 2, 2026</div><div class="report-detail"><strong>Codes:</strong> P0420, P0442</div><div class="report-detail"><strong>Status:</strong> 2 issues found</div><div class="report-detail"><strong>Mechanic:</strong> Sarah L.</div></div><div class="report-card-actions"><button class="btn btn-secondary btn-sm">View Full Report</button><button class="btn btn-ghost btn-sm">Download PDF</button></div></div>
+            <div class="report-card"><div class="report-card-header"><div><h4>Ford F-150 2023</h4><p style="font-size:var(--fs-xs); color:var(--clr-text-tertiary)">Report #RPT-2024-003</p></div><span class="badge badge-error">Critical</span></div><div class="report-card-details"><div class="report-detail"><strong>Date:</strong> May 28, 2026</div><div class="report-detail"><strong>Codes:</strong> P0300, P0301</div><div class="report-detail"><strong>Status:</strong> Immediate repair needed</div><div class="report-detail"><strong>Mechanic:</strong> James T.</div></div><div class="report-card-actions"><button class="btn btn-secondary btn-sm">View Full Report</button><button class="btn btn-ghost btn-sm">Download PDF</button></div></div>
+            <div class="report-card"><div class="report-card-header"><div><h4>BMW X5 2020</h4><p style="font-size:var(--fs-xs); color:var(--clr-text-tertiary)">Report #RPT-2024-004</p></div><span class="badge badge-success">Clear</span></div><div class="report-card-details"><div class="report-detail"><strong>Date:</strong> May 20, 2026</div><div class="report-detail"><strong>Codes:</strong> 0 found</div><div class="report-detail"><strong>Status:</strong> All systems normal</div><div class="report-detail"><strong>Mechanic:</strong> Mike S.</div></div><div class="report-card-actions"><button class="btn btn-secondary btn-sm">View Full Report</button><button class="btn btn-ghost btn-sm">Download PDF</button></div></div>
+          </div>
+        </div>
+
+        <!-- ====== REPAIR ESTIMATES ====== -->
+        <div class="dash-page" id="dash-estimates">
+          <h3 style="margin-bottom:var(--space-lg)">Repair Estimates</h3>
+          <div class="estimates-grid">
+            <div class="estimate-card"><h4>Honda Accord — Catalytic Converter</h4><p style="font-size:var(--fs-xs); color:var(--clr-text-tertiary); margin-top:4px;">Code: P0420 · Est. #EST-001</p><div class="estimate-breakdown"><div class="estimate-row"><span>Parts — Catalytic Converter</span><span>$850</span></div><div class="estimate-row"><span>Labor (2.5 hrs)</span><span>$250</span></div><div class="estimate-row"><span>Diagnostic Fee</span><span>$0</span></div><div class="estimate-row"><span>Total Estimate</span><span>$1,100</span></div></div><div class="estimate-actions"><button class="btn btn-primary btn-sm">Approve Repair</button><button class="btn btn-ghost btn-sm">Decline</button></div></div>
+            <div class="estimate-card"><h4>Honda Accord — Gas Cap </h4><p style="font-size:var(--fs-xs); color:var(--clr-text-tertiary); margin-top:4px;">Code: P0442 · Est. #EST-002</p><div class="estimate-breakdown"><div class="estimate-row"><span>Parts — Gas Cap (OEM)</span><span>$25</span></div><div class="estimate-row"><span>Labor (0.25 hrs)</span><span>$25</span></div><div class="estimate-row"><span>Diagnostic Fee</span><span>$0</span></div><div class="estimate-row"><span>Total Estimate</span><span>$50</span></div></div><div class="estimate-actions"><button class="btn btn-primary btn-sm">Approve Repair</button><button class="btn btn-ghost btn-sm">Decline</button></div></div>
+            <div class="estimate-card"><h4>Ford F-150 — Ignition Coil Pack</h4><p style="font-size:var(--fs-xs); color:var(--clr-text-tertiary); margin-top:4px;">Code: P0301 · Est. #EST-003</p><div class="estimate-breakdown"><div class="estimate-row"><span>Parts — Ignition Coil</span><span>$65</span></div><div class="estimate-row"><span>Parts — Spark Plug</span><span>$12</span></div><div class="estimate-row"><span>Labor (1 hr)</span><span>$100</span></div><div class="estimate-row"><span>Total Estimate</span><span>$177</span></div></div><div class="estimate-actions"><button class="btn btn-primary btn-sm">Approve Repair</button><button class="btn btn-ghost btn-sm">Decline</button></div></div>
+            <div class="estimate-card"><h4>Toyota Camry — Oxygen (O2) Sensor</h4><p style="font-size:var(--fs-xs); color:var(--clr-text-tertiary); margin-top:4px;">Code: P0135 · Est. #EST-004</p><div class="estimate-breakdown"><div class="estimate-row"><span>Parts — Oxygen Sensor</span><span>$120</span></div><div class="estimate-row"><span>Labor (1.2 hrs)</span><span>$120</span></div><div class="estimate-row"><span>Diagnostic Fee</span><span>$0</span></div><div class="estimate-row"><span>Total Estimate</span><span>$240</span></div></div><div class="estimate-actions"><button class="btn btn-primary btn-sm">Approve Repair</button><button class="btn btn-ghost btn-sm">Decline</button></div></div>
+          </div>
+        </div>
+
+        <!-- ====== VEHICLE HISTORY ====== -->
+        <div class="dash-page" id="dash-history">
+          <h3 style="margin-bottom:var(--space-lg)">Vehicle History</h3>
+          <div class="history-timeline">
+            <div class="history-vehicle-selector"><label class="form-label">Select Vehicle</label><select class="form-select" style="max-width:300px"><option>All Vehicles</option><option>Toyota Camry 2022</option><option>Honda Accord 2021</option><option>Ford F-150 2023</option><option>BMW X5 2020</option></select></div>
+            <div class="history-item"><div class="history-date"><div class="month">Jun</div><div class="day">05</div></div><div class="history-content"><h4>Toyota Camry — OBD2 Scan</h4><p>All systems normal. No trouble codes found. Battery health: 92%.</p><span class="badge badge-success" style="margin-top:4px">Clear</span></div></div>
+            <div class="history-item"><div class="history-date"><div class="month">Jun</div><div class="day">02</div></div><div class="history-content"><h4>Honda Accord — Check Engine Light</h4><p>Found codes P0420 (catalyst efficiency) and P0442 (EVAP small leak). Repair estimates provided.</p><span class="badge badge-warning" style="margin-top:4px">Attention</span></div></div>
+            <div class="history-item"><div class="history-date"><div class="month">May</div><div class="day">28</div></div><div class="history-content"><h4>Ford F-150 — Engine Performance</h4><p>Detected P0300 and P0301 — multiple cylinder misfire. Immediate repair recommended.</p><span class="badge badge-error" style="margin-top:4px">Critical</span></div></div>
+            <div class="history-item"><div class="history-date"><div class="month">May</div><div class="day">20</div></div><div class="history-content"><h4>BMW X5 — Pre-Purchase Inspection</h4><p>Full 200-point inspection completed. Vehicle in excellent condition. Purchase recommended.</p><span class="badge badge-success" style="margin-top:4px">Clear</span></div></div>
+            <div class="history-item"><div class="history-date"><div class="month">May</div><div class="day">10</div></div><div class="history-content"><h4>Toyota Camry — Emissions Testing</h4><p>All readiness monitors complete. Vehicle passed pre-emissions check.</p><span class="badge badge-success" style="margin-top:4px">Passed</span></div></div>
+          </div>
+        </div>
+
+        <!-- ====== CODE LOOKUP ====== -->
+        <div class="dash-page" id="dash-lookup">
+          <h3 style="margin-bottom:var(--space-lg)">OBD2 Code Lookup Library</h3>
+          <div class="lookup-container">
+            <p style="margin-bottom:var(--space-md); color:var(--clr-text-secondary);">Enter an OBD2 trouble code to find its meaning, severity, and estimated repair cost.</p>
+            <div style="display:flex; gap:var(--space-sm);">
+              <input type="text" class="form-input" id="dash-code-input" placeholder="Enter code (e.g. P0301)" style="flex:1" autocomplete="off">
+              <button class="btn btn-primary"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+            </div>
+            <div id="dash-code-result"></div>
+            <div style="margin-top:var(--space-2xl)">
+              <h4 style="margin-bottom:var(--space-md)">Common Codes</h4>
+              <div class="table-wrapper"><table class="table"><thead><tr><th>Code</th><th>Description</th><th>Severity</th></tr></thead><tbody>
+                <tr><td><strong>P0301</strong></td><td>Cylinder 1 Misfire Detected</td><td><span class="badge badge-warning">Moderate</span></td></tr>
+                <tr><td><strong>P0420</strong></td><td>Catalyst Efficiency Below Threshold</td><td><span class="badge badge-warning">Moderate</span></td></tr>
+                <tr><td><strong>P0171</strong></td><td>System Too Lean (Bank 1)</td><td><span class="badge badge-primary">Low</span></td></tr>
+                <tr><td><strong>P0300</strong></td><td>Random Multiple Cylinder Misfire</td><td><span class="badge badge-error">High</span></td></tr>
+                <tr><td><strong>P0442</strong></td><td>EVAP System Small Leak</td><td><span class="badge badge-primary">Low</span></td></tr>
+                <tr><td><strong>P0455</strong></td><td>EVAP System Large Leak</td><td><span class="badge badge-warning">Moderate</span></td></tr>
+                <tr><td><strong>P0128</strong></td><td>Coolant Temp Below Thermostat</td><td><span class="badge badge-primary">Low</span></td></tr>
+                <tr><td><strong>P0500</strong></td><td>Vehicle Speed Sensor Malfunction</td><td><span class="badge badge-warning">Moderate</span></td></tr>
+              </tbody></table></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ====== TRACK MECHANIC ====== -->
+        <div class="dash-page" id="dash-track">
+          <h3 style="margin-bottom:var(--space-lg)">Track Your Mechanic</h3>
+          <div class="track-container">
+            <div class="track-map" style="padding: 0; min-height: 400px; display: block;">
+              <iframe src="https://maps.google.com/maps?q=San%20Francisco,%20CA&t=&z=14&ie=UTF8&iwloc=&output=embed" style="width: 100%; height: 100%; min-height: 400px; border: 0; display: block;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="track-info">
+              <div class="mechanic-card"><div class="mechanic-header"><div class="avatar avatar-lg">MS</div><div class="mechanic-info"><h4>Mike Sanders</h4><p>ASE Certified · 8 yrs experience</p><div class="stars" style="margin-top:4px"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div></div></div><div class="mechanic-details"><div class="mechanic-detail"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>ETA: 15 minutes</div><div class="mechanic-detail"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>2.3 miles away</div><div class="mechanic-detail"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Service: OBD2 Diagnostics</div><div class="mechanic-detail"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg><span class="badge badge-success">En Route</span></div></div></div>
+              <button class="btn btn-secondary btn-block"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Call Mechanic</button>
+            </div>
+          </div>
+        </div>
+
+
+
+        <!-- ====== NOTIFICATIONS ====== -->
+        <div class="dash-page" id="dash-notifications">
+          <h3 style="margin-bottom:var(--space-lg)">Notifications</h3>
+          <div class="notification-list">
+            <div class="notification-item unread"><div class="notification-icon" style="background:rgba(var(--clr-primary-rgb),0.1); color:var(--clr-primary)"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div class="notification-body"><h4>Diagnostic Report Ready</h4><p>Your Toyota Camry diagnostic report is ready for review.</p><div class="notification-time">2 hours ago</div></div></div>
+            <div class="notification-item unread"><div class="notification-icon" style="background:rgba(var(--clr-secondary-rgb),0.1); color:var(--clr-secondary)"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div class="notification-body"><h4>Appointment Reminder</h4><p>Your Honda Accord diagnostic scan is scheduled for tomorrow at 2:00 PM.</p><div class="notification-time">5 hours ago</div></div></div>
+            <div class="notification-item unread"><div class="notification-icon" style="background:rgba(16,185,129,0.1); color:var(--clr-success)"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div><div class="notification-body"><h4>Repair Approved</h4><p>Your gas cap replacement for the Honda Accord has been scheduled.</p><div class="notification-time">1 day ago</div></div></div>
+            <div class="notification-item"><div class="notification-icon" style="background:rgba(239,68,68,0.1); color:var(--clr-error)"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div><div class="notification-body"><h4>Critical Issue Detected</h4><p>Your Ford F-150 has critical engine misfires. Immediate attention recommended.</p><div class="notification-time">2 days ago</div></div></div>
+            <div class="notification-item"><div class="notification-icon" style="background:rgba(var(--clr-primary-rgb),0.1); color:var(--clr-primary)"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div class="notification-body"><h4>Welcome to AutoDiag!</h4><p>Your account has been created. Start by registering your vehicle and scheduling your first scan.</p><div class="notification-time">1 week ago</div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/theme.js"></script>
+  <script src="js/rtl.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
+

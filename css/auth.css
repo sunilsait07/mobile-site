@@ -1,0 +1,213 @@
+/* ============================================
+   AUTH PAGES — Login & Sign Up
+   ============================================ */
+
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-xl);
+  background: var(--clr-bg);
+  position: relative;
+}
+
+.auth-page .auth-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.auth-page .auth-bg::before {
+  content: '';
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(var(--clr-primary-rgb), 0.06) 0%, transparent 70%);
+  top: -150px;
+  inset-inline-start: -150px;
+}
+
+.auth-page .auth-bg::after {
+  content: '';
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(var(--clr-secondary-rgb), 0.05) 0%, transparent 70%);
+  bottom: -100px;
+  inset-inline-end: -100px;
+}
+
+/* ---- Top-right toggles ---- */
+.auth-top-actions {
+  position: absolute;
+  top: var(--space-md);
+  inset-inline-end: var(--space-md);
+  display: flex;
+  gap: var(--space-sm);
+  z-index: 100;
+}
+
+/* ---- Auth Card ---- */
+.auth-card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 440px;
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-surface-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-2xl);
+  box-shadow: var(--shadow-xl);
+}
+
+.auth-card .auth-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-xl);
+  text-decoration: none;
+}
+
+.auth-card .auth-logo svg {
+  width: 40px;
+  height: 40px;
+}
+
+.auth-card .auth-logo-text {
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-bold);
+  color: var(--clr-text);
+}
+
+.auth-card .auth-logo-text span {
+  color: var(--clr-secondary);
+}
+
+.auth-card .auth-title {
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-bold);
+  text-align: center;
+  margin-bottom: var(--space-2xs);
+}
+
+.auth-card .auth-subtitle {
+  font-size: var(--fs-sm);
+  color: var(--clr-text-secondary);
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+/* ---- Form Row (Remember Me + Forgot Password) ---- */
+.auth-form-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-md);
+  gap: var(--space-xs);
+  flex-wrap: wrap;
+}
+
+.auth-form-row .form-checkbox {
+  font-size: var(--fs-xs);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.auth-form-row .form-checkbox input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+}
+
+.auth-form-row .forgot-link {
+  font-size: var(--fs-xs);
+  color: var(--clr-primary);
+  text-decoration: none;
+  font-weight: var(--fw-medium);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.auth-form-row .forgot-link:hover {
+  text-decoration: underline;
+}
+
+/* ---- Password Input ---- */
+.password-field {
+  position: relative;
+}
+
+.password-field .form-input {
+  padding-inline-end: 48px;
+}
+
+/* ---- Social Login ---- */
+.social-logins {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.social-btn .social-logo {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+/* Google Logo SVG inline */
+.social-btn .google-logo {
+  width: 20px;
+  height: 20px;
+}
+
+/* Apple Logo SVG inline */
+.social-btn .apple-logo {
+  width: 20px;
+  height: 20px;
+}
+
+/* ---- Auth Footer Link ---- */
+.auth-footer-link {
+  text-align: center;
+  margin-top: var(--space-lg);
+  font-size: var(--fs-sm);
+  color: var(--clr-text-secondary);
+}
+
+.auth-footer-link a {
+  color: var(--clr-primary);
+  font-weight: var(--fw-semibold);
+  text-decoration: none;
+}
+
+.auth-footer-link a:hover {
+  text-decoration: underline;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
+  .auth-card {
+    padding: var(--space-xl);
+  }
+}
+
+@media (max-width: 576px) {
+  .auth-page {
+    padding: 80px var(--space-md) var(--space-xl);
+  }
+}
+
+@media (max-width: 480px) {
+  .auth-card {
+    padding: var(--space-lg) var(--space-md);
+  }
+}
+
+.secured {
+  -webkit-text-security: disc !important;
+  text-security: disc !important;
+}

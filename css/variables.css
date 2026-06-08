@@ -1,0 +1,145 @@
+/* ============================================
+   DESIGN SYSTEM — CSS CUSTOM PROPERTIES
+   Mobile Diagnostic & Check Engine Light Service
+   ============================================ */
+
+:root {
+  /* ---- Primary Colors ---- */
+  --clr-primary: #0F4C81;
+  --clr-primary-light: #1A6BB5;
+  --clr-primary-dark: #0A3660;
+  --clr-primary-rgb: 15, 76, 129;
+
+  /* ---- Secondary Colors ---- */
+  --clr-secondary: #F97316;
+  --clr-secondary-light: #FB923C;
+  --clr-secondary-dark: #EA580C;
+  --clr-secondary-rgb: 249, 115, 22;
+
+  /* ---- Backgrounds ---- */
+  --clr-bg: #FFFFFF;
+  --clr-bg-alt: #F8FAFC;
+  --clr-bg-elevated: #FFFFFF;
+
+  /* ---- Surfaces ---- */
+  --clr-surface: #FFFFFF;
+  --clr-surface-hover: #F1F5F9;
+  --clr-surface-border: #E2E8F0;
+
+  /* ---- Text ---- */
+  --clr-text: #0F172A;
+  --clr-text-secondary: #64748B;
+  --clr-text-tertiary: #94A3B8;
+  --clr-text-inverse: #FFFFFF;
+
+  /* ---- Status / Indicators ---- */
+  --clr-success: #10B981;
+  --clr-warning: #F59E0B;
+  --clr-error: #EF4444;
+  --clr-info: #3B82F6;
+
+  /* ---- Shadows ---- */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.12);
+  --shadow-glow: 0 0 20px rgba(var(--clr-primary-rgb), 0.15);
+  --shadow-glow-secondary: 0 0 20px rgba(var(--clr-secondary-rgb), 0.15);
+
+  /* ---- Typography ---- */
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --fs-2xs: 0.6875rem;  /* 11px */
+  --fs-xs: 0.75rem;     /* 12px */
+  --fs-sm: 0.875rem;    /* 14px */
+  --fs-base: 1rem;      /* 16px */
+  --fs-md: 1.125rem;    /* 18px */
+  --fs-lg: 1.25rem;     /* 20px */
+  --fs-xl: 1.5rem;      /* 24px */
+  --fs-2xl: 2rem;       /* 32px */
+  --fs-3xl: 2.5rem;     /* 40px */
+  --fs-4xl: 3rem;       /* 48px */
+  --fs-5xl: 3.5rem;     /* 56px */
+
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --fw-extrabold: 800;
+
+  --lh-tight: 1.2;
+  --lh-normal: 1.5;
+  --lh-relaxed: 1.7;
+
+  /* ---- Spacing ---- */
+  --space-2xs: 0.25rem;  /* 4px */
+  --space-xs: 0.5rem;    /* 8px */
+  --space-sm: 0.75rem;   /* 12px */
+  --space-md: 1rem;      /* 16px */
+  --space-lg: 1.5rem;    /* 24px */
+  --space-xl: 2rem;      /* 32px */
+  --space-2xl: 3rem;     /* 48px */
+  --space-3xl: 4rem;     /* 64px */
+  --space-4xl: 6rem;     /* 96px */
+
+  /* ---- Border Radius ---- */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* ---- Transitions ---- */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 400ms ease;
+  --transition-theme: 350ms ease;
+
+  /* ---- Layout ---- */
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1200px;
+  --navbar-height: 72px;
+  --sidebar-width: 260px;
+  --sidebar-width-collapsed: 72px;
+}
+
+/* ============================================
+   DARK THEME OVERRIDES
+   ============================================ */
+[data-theme="dark"] {
+  --clr-primary: #3B82F6;
+  --clr-primary-light: #60A5FA;
+  --clr-primary-dark: #2563EB;
+  --clr-primary-rgb: 59, 130, 246;
+
+  --clr-secondary: #FB923C;
+  --clr-secondary-light: #FDBA74;
+  --clr-secondary-dark: #F97316;
+  --clr-secondary-rgb: 251, 146, 60;
+
+  --clr-bg: #0F172A;
+  --clr-bg-alt: #1E293B;
+  --clr-bg-elevated: #1E293B;
+
+  --clr-surface: #1E293B;
+  --clr-surface-hover: #334155;
+  --clr-surface-border: #334155;
+
+  --clr-text: #F1F5F9;
+  --clr-text-secondary: #94A3B8;
+  --clr-text-tertiary: #64748B;
+  --clr-text-inverse: #0F172A;
+
+  --clr-success: #34D399;
+  --clr-warning: #FBBF24;
+  --clr-error: #F87171;
+  --clr-info: #60A5FA;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.35);
+  --shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.4);
+  --shadow-glow: 0 0 25px rgba(var(--clr-primary-rgb), 0.25);
+  --shadow-glow-secondary: 0 0 25px rgba(var(--clr-secondary-rgb), 0.25);
+}

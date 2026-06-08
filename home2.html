@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AutoDiag — Premium Mobile Diagnostic Experience</title>
+  <meta name="description" content="Experience premium mobile diagnostic service with OBD2 code lookup, real-time mechanic tracking, and a powerful customer dashboard.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/home2.css">
+</head>
+<body>
+
+  <!-- ========== NAVBAR ========== -->
+  <div id="navbar-container"></div>
+
+  <main>
+    <!-- ========== PREMIUM HERO ========== -->
+    <section class="hero-premium" id="hero-premium">
+      <div class="hero-bg-glow"></div>
+      <div class="hero-grid-pattern"></div>
+      <div class="container hero-premium-content">
+        <div class="hero-premium-text">
+          <div class="hero-eyebrow">
+            <span class="dot-pulse"></span>
+            Advanced OBD2 Diagnostics — Live Now
+          </div>
+          <h1>Next-Gen <span class="gradient-text">Vehicle Diagnostics</span> at Your Fingertips</h1>
+          <p class="hero-desc">Access real-time engine data, a comprehensive OBD2 code library, mechanic tracking, and detailed repair estimates — all from your personalized dashboard.</p>
+          <div class="hero-ctas">
+            <a href="dashboard.html" class="btn btn-primary btn-lg" id="hero2-cta-primary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+              Open Dashboard
+            </a>
+            <a href="#code-lookup" class="btn btn-secondary btn-lg" id="hero2-cta-secondary">Try Code Lookup</a>
+          </div>
+        </div>
+        <div class="hero-premium-visual">
+          <div class="hero-premium-img-container">
+            <img src="assets/images/hero-premium.png" alt="Futuristic car diagnostic interface with holographic data" loading="eager">
+            <div class="scan-overlay"></div>
+            <div class="scan-line"></div>
+          </div>
+          <div class="premium-float-stat stat-1">
+            <div class="stat-icon" style="background: rgba(var(--clr-secondary-rgb), 0.1); color: var(--clr-secondary);">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <div class="stat-number">98%</div>
+            <div class="stat-text">Accuracy Rate</div>
+          </div>
+          <div class="premium-float-stat stat-2">
+            <div class="stat-icon" style="background: rgba(16, 185, 129, 0.1); color: var(--clr-success);">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div class="stat-number">30min</div>
+            <div class="stat-text">Avg. Response</div>
+          </div>
+          <div class="premium-float-stat stat-3">
+            <div class="stat-icon" style="background: rgba(var(--clr-primary-rgb), 0.1); color: var(--clr-primary);">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div class="stat-number">ASE</div>
+            <div class="stat-text">Certified</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== LIVE STATS ========== -->
+    <section class="live-stats" id="live-stats">
+      <div class="container">
+        <div class="stats-row">
+          <div class="stat-block anim-fade-up anim-delay-1">
+            <div class="stat-counter" data-count="15000" data-suffix="+">0</div>
+            <div class="stat-desc">Vehicles Diagnosed</div>
+          </div>
+          <div class="stat-block anim-fade-up anim-delay-2">
+            <div class="stat-counter" data-count="52" data-suffix="">0</div>
+            <div class="stat-desc">Cities Served</div>
+          </div>
+          <div class="stat-block anim-fade-up anim-delay-3">
+            <div class="stat-counter" data-count="4800" data-suffix="+">0</div>
+            <div class="stat-desc">5-Star Reviews</div>
+          </div>
+          <div class="stat-block anim-fade-up anim-delay-4">
+            <div class="stat-counter" data-count="120" data-suffix="+">0</div>
+            <div class="stat-desc">Certified Mechanics</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SERVICE SHOWCASE ========== -->
+    <section class="service-showcase section" id="service-showcase">
+      <div class="container">
+        <div class="section-header anim-fade-up">
+          <span class="section-label">Our Services</span>
+          <h2>Comprehensive Diagnostic Solutions</h2>
+          <p>From basic code reads to full system diagnostics — we cover it all.</p>
+        </div>
+        <div class="showcase-scroll">
+          <div class="showcase-card">
+            <img src="assets/images/service-obd2.png" alt="OBD2 Diagnostic Scanning" loading="lazy">
+            <div class="showcase-card-body">
+              <h4>OBD2 Diagnostics</h4>
+              <p>Full port scanning with trouble code readout and real-time data streaming.</p>
+              <a href="services.html" class="btn btn-secondary btn-sm">View Details</a>
+            </div>
+          </div>
+          <div class="showcase-card">
+            <img src="assets/images/service-engine.png" alt="Check Engine Light" loading="lazy">
+            <div class="showcase-card-body">
+              <h4>Check Engine Light</h4>
+              <p>Expert diagnosis and code interpretation for check engine warnings.</p>
+              <a href="services.html" class="btn btn-secondary btn-sm">View Details</a>
+            </div>
+          </div>
+          <div class="showcase-card">
+            <img src="assets/images/service-emissions.png" alt="Emissions Testing" loading="lazy">
+            <div class="showcase-card-body">
+              <h4>Emissions Testing</h4>
+              <p>Pre-inspection testing to meet state and federal emission standards.</p>
+              <a href="services.html" class="btn btn-secondary btn-sm">View Details</a>
+            </div>
+          </div>
+          <div class="showcase-card">
+            <img src="assets/images/service-inspection.png" alt="Pre-Purchase Inspection" loading="lazy">
+            <div class="showcase-card-body">
+              <h4>Pre-Purchase Inspection</h4>
+              <p>Thorough vehicle inspection with full diagnostic scan before you buy.</p>
+              <a href="services.html" class="btn btn-secondary btn-sm">View Details</a>
+            </div>
+          </div>
+          <div class="showcase-card">
+            <img src="assets/images/service-performance.png" alt="Engine Performance" loading="lazy">
+            <div class="showcase-card-body">
+              <h4>Engine Performance</h4>
+              <p>Power and efficiency diagnostics for optimal engine performance.</p>
+              <a href="services.html" class="btn btn-secondary btn-sm">View Details</a>
+            </div>
+          </div>
+          <div class="showcase-card">
+            <img src="assets/images/service-electrical.png" alt="Electrical Diagnostics" loading="lazy">
+            <div class="showcase-card-body">
+              <h4>Electrical Diagnostics</h4>
+              <p>Battery, alternator, starter, and full wiring system testing and Diagnostics.</p>
+              <a href="services.html" class="btn btn-secondary btn-sm">View Details</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CODE LOOKUP PREVIEW ========== -->
+    <section class="code-lookup-preview section" id="code-lookup">
+      <div class="container">
+        <div class="code-lookup-container">
+          <div class="code-lookup-info anim-fade-left">
+            <span class="section-label">Smart Diagnostics</span>
+            <h2>OBD2 Code Lookup Library</h2>
+            <p>Instantly search and understand any diagnostic trouble code. Our database covers thousands of OBD2 codes with plain-language explanations.</p>
+            <div class="feature-list">
+              <div class="feature-list-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                Over 5,000+ OBD2 codes in our database
+              </div>
+              <div class="feature-list-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                Plain-language severity explanations
+              </div>
+              <div class="feature-list-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                Estimated repair cost ranges
+              </div>
+              <div class="feature-list-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                Common causes and solutions
+              </div>
+            </div>
+            <a href="dashboard.html" class="btn btn-primary" id="code-lookup-cta">Access Full Library</a>
+          </div>
+          <div class="code-lookup-demo anim-fade-right">
+            <div class="code-search-box">
+              <input type="text" id="code-search-input" placeholder="Try: P0301, P0420, P0171..." autocomplete="off">
+              <button class="btn btn-primary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              </button>
+            </div>
+            <div class="code-result" id="code-result" style="display:none;"></div>
+            <div class="code-result" id="code-result-default">
+              <div class="code-title">
+                P0301 — Cylinder 1 Misfire Detected
+                <span class="code-badge badge badge-warning">Moderate</span>
+              </div>
+              <p class="code-description">The engine control module has detected that cylinder 1 is misfiring. This can cause rough idle, loss of power, and increased emissions.</p>
+              <div class="code-details">
+                <div class="code-detail"><strong>System:</strong> Ignition System</div>
+                <div class="code-detail"><strong>Common Cause:</strong> Faulty spark plug or coil</div>
+                <div class="code-detail"><strong>Est. Repair:</strong> $85 – $300</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== DASHBOARD PREVIEW ========== -->
+    <section class="dashboard-preview section" id="dashboard-preview">
+      <div class="container">
+        <div class="preview-container">
+          <div class="preview-mockup anim-fade-left">
+            <div class="preview-mockup-header">
+              <div class="dot" style="background: var(--clr-error);"></div>
+              <div class="dot" style="background: var(--clr-warning);"></div>
+              <div class="dot" style="background: var(--clr-success);"></div>
+              <span style="margin-inline-start: auto; font-size: var(--fs-xs); color: var(--clr-text-tertiary);">Dashboard Preview</span>
+            </div>
+            <div class="preview-mockup-metrics">
+              <div class="preview-metric">
+                <div class="metric-val">12</div>
+                <div class="metric-lbl">Active Scans</div>
+              </div>
+              <div class="preview-metric">
+                <div class="metric-val">5</div>
+                <div class="metric-lbl">Pending</div>
+              </div>
+              <div class="preview-metric">
+                <div class="metric-val">48</div>
+                <div class="metric-lbl">Total Reports</div>
+              </div>
+            </div>
+            <div class="preview-mockup-chart">
+              <div class="chart-bar" data-height="40%" style="background: var(--clr-primary); height: 0;"></div>
+              <div class="chart-bar" data-height="65%" style="background: var(--clr-primary); height: 0;"></div>
+              <div class="chart-bar" data-height="45%" style="background: var(--clr-secondary); height: 0;"></div>
+              <div class="chart-bar" data-height="80%" style="background: var(--clr-primary); height: 0;"></div>
+              <div class="chart-bar" data-height="55%" style="background: var(--clr-primary); height: 0;"></div>
+              <div class="chart-bar" data-height="70%" style="background: var(--clr-secondary); height: 0;"></div>
+              <div class="chart-bar" data-height="90%" style="background: var(--clr-primary); height: 0;"></div>
+              <div class="chart-bar" data-height="60%" style="background: var(--clr-primary); height: 0;"></div>
+              <div class="chart-bar" data-height="35%" style="background: var(--clr-secondary); height: 0;"></div>
+              <div class="chart-bar" data-height="75%" style="background: var(--clr-primary); height: 0;"></div>
+              <div class="chart-bar" data-height="50%" style="background: var(--clr-primary); height: 0;"></div>
+              <div class="chart-bar" data-height="85%" style="background: var(--clr-secondary); height: 0;"></div>
+            </div>
+          </div>
+          <div class="preview-info anim-fade-right">
+            <span class="section-label">Your Dashboard</span>
+            <h2>Everything in One Place</h2>
+            <p>Manage all your vehicle diagnostics, schedule scans, review reports, and track mechanics from a single powerful dashboard.</p>
+            <div class="preview-features">
+              <div class="preview-feature">
+                <div class="pf-icon" style="background: rgba(var(--clr-primary-rgb), 0.1); color: var(--clr-primary);">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                </div>
+                <div>
+                  <h5>Schedule Scans</h5>
+                  <p>Book OBD2 diagnostic scans with a few clicks.</p>
+                </div>
+              </div>
+              <div class="preview-feature">
+                <div class="pf-icon" style="background: rgba(var(--clr-secondary-rgb), 0.1); color: var(--clr-secondary);">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                </div>
+                <div>
+                  <h5>Diagnostic Reports</h5>
+                  <p>Access detailed reports with code analysis.</p>
+                </div>
+              </div>
+              <div class="preview-feature">
+                <div class="pf-icon" style="background: rgba(16, 185, 129, 0.1); color: var(--clr-success);">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <div>
+                  <h5>Track Mechanic</h5>
+                  <p>Live tracking of your assigned mechanic's arrival.</p>
+                </div>
+              </div>
+            </div>
+            <a href="dashboard.html" class="btn btn-primary" id="preview-dashboard-cta">Go to Dashboard</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== DISPATCH TRACKING PREVIEW ========== -->
+    <style>
+      @keyframes mapPulse {
+        0% { box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.7); }
+        70% { box-shadow: 0 0 0 10px rgba(249, 115, 22, 0); }
+        100% { box-shadow: 0 0 0 0 rgba(249, 115, 22, 0); }
+      }
+      @media (max-width: 768px) {
+        .dashboard-preview-inner {
+          grid-template-columns: 1fr !important;
+          gap: var(--space-xl) !important;
+        }
+      }
+    </style>
+    <section class="section" id="dispatch-preview" style="background: var(--clr-bg-alt); overflow: hidden;">
+      <div class="container">
+        <div class="section-header anim-fade-up">
+          <span class="section-label">Real-time Telemetry</span>
+          <h2>Live Dispatch Tracking</h2>
+          <p>Once your diagnostic is booked, see your certified technician en route on our live telemetry map.</p>
+        </div>
+        
+        <div class="dashboard-preview-inner" style="display: grid; grid-template-columns: 1.2fr 1fr; gap: var(--space-2xl); align-items: center;">
+          <!-- Left side: Live map mock -->
+          <div class="preview-mockup anim-scale-in" style="padding: 0; background: var(--clr-surface); border: 1px solid var(--clr-surface-border); box-shadow: var(--shadow-lg); border-radius: var(--radius-xl); overflow: hidden;">
+            <div style="padding: var(--space-md) var(--space-lg); border-bottom: 1px solid var(--clr-surface-border); display: flex; align-items: center; justify-content: space-between; background: var(--clr-surface);">
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <span style="width: 8px; height: 8px; background: var(--clr-success); border-radius: 50%;"></span>
+                <span style="font-size: var(--fs-xs); font-weight: var(--fw-semibold);">En Route — Dispatch ID #DS-9921</span>
+              </div>
+              <span style="font-size: var(--fs-2xs); color: var(--clr-text-tertiary); font-family: monospace;">GPS ACTIVE</span>
+            </div>
+            
+            <!-- Map background with a route -->
+            <div style="height: 280px; position: relative; background: var(--clr-bg-alt); background-image: radial-gradient(var(--clr-surface-border) 2px, transparent 2px); background-size: 20px 20px;">
+              <!-- Simulated roads -->
+              <div style="position: absolute; top: 100px; left: 0; right: 0; height: 16px; background: var(--clr-surface); box-shadow: inset 0 0 4px rgba(0,0,0,0.05);"></div>
+              <div style="position: absolute; top: 0; bottom: 0; left: 180px; width: 16px; background: var(--clr-surface); box-shadow: inset 0 0 4px rgba(0,0,0,0.05);"></div>
+              <div style="position: absolute; top: 0; bottom: 0; left: 380px; width: 16px; background: var(--clr-surface); box-shadow: inset 0 0 4px rgba(0,0,0,0.05);"></div>
+              <div style="position: absolute; top: 200px; left: 0; right: 0; height: 16px; background: var(--clr-surface); box-shadow: inset 0 0 4px rgba(0,0,0,0.05);"></div>
+              
+              <!-- Route path -->
+              <svg style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none;">
+                <path d="M 50,208 L 188,208 L 188,108 L 388,108 L 388,50" fill="none" stroke="var(--clr-primary)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 4" />
+              </svg>
+              
+              <!-- Map pins -->
+              <!-- Customer Pin -->
+              <div style="position: absolute; top: 38px; left: 374px; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; background: var(--clr-primary); color: #fff; border-radius: 50%; box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.3);">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+              </div>
+              
+              <!-- Mechanic Pin with Pulse -->
+              <div style="position: absolute; top: 94px; left: 260px; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; background: var(--clr-secondary); color: #fff; border-radius: 50%; box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.3); animation: mapPulse 2s infinite;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1 .4-1 1v7c0 .6.4 1 1 1h1c0 1.1.9 2 2 2s2-.9 2-2h4c0 1.1.9 2 2 2s2-.9 2-2h2"/><circle cx="8" cy="18" r="2"/><circle cx="16" cy="18" r="2"/></svg>
+              </div>
+            </div>
+            
+            <div style="padding: var(--space-md) var(--space-lg); display: flex; justify-content: space-between; align-items: center; background: var(--clr-surface); border-top: 1px solid var(--clr-surface-border);">
+              <div style="display: flex; align-items: center; gap: var(--space-sm);">
+                <div style="width: 36px; height: 36px; border-radius: 50%; background: rgba(59,130,246,0.1); color: var(--clr-primary); font-weight: var(--fw-bold); font-size: var(--fs-sm); display: flex; align-items: center; justify-content: center;">MS</div>
+                <div>
+                  <div style="font-size: var(--fs-xs); font-weight: var(--fw-semibold);">Mike Sanders</div>
+                  <div style="font-size: var(--fs-2xs); color: var(--clr-text-secondary);">ASE-Certified Lead Tech</div>
+                </div>
+              </div>
+              <div style="text-align: right;">
+                <div style="font-size: var(--fs-xs); font-weight: var(--fw-bold); color: var(--clr-secondary);">ETA 11 Mins</div>
+                <div style="font-size: var(--fs-2xs); color: var(--clr-text-secondary);">Distance: 1.4 miles</div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Right side: details and checklist -->
+          <div class="preview-info anim-fade-right">
+            <h3>Technician Telemetry &amp; Status</h3>
+            <p>Our fleet is fully instrumented. You can check vehicle telemetry and status live as the technician is driving to your home or office.</p>
+            
+            <div style="display: flex; flex-direction: column; gap: var(--space-sm); margin-top: var(--space-lg);">
+              <div style="display: flex; align-items: center; gap: var(--space-md); padding: var(--space-sm) var(--space-md); background: var(--clr-surface); border: 1px solid var(--clr-surface-border); border-radius: var(--radius-md);">
+                <span style="font-size: var(--fs-lg); color: var(--clr-primary); font-weight: var(--fw-bold);">84%</span>
+                <div>
+                  <div style="font-size: var(--fs-xs); font-weight: var(--fw-semibold);">Battery Charger Charge Level</div>
+                  <div style="font-size: var(--fs-2xs); color: var(--clr-text-secondary);">Onboard diagnostic hub auxiliary batteries are fully charged and ready.</div>
+                </div>
+              </div>
+              <div style="display: flex; align-items: center; gap: var(--space-md); padding: var(--space-sm) var(--space-md); background: var(--clr-surface); border: 1px solid var(--clr-surface-border); border-radius: var(--radius-md);">
+                <span style="font-size: var(--fs-lg); color: var(--clr-success); font-weight: var(--fw-bold);">ACTIVE</span>
+                <div>
+                  <div style="font-size: var(--fs-xs); font-weight: var(--fw-semibold);">OBD2 Pro Link Status</div>
+                  <div style="font-size: var(--fs-2xs); color: var(--clr-text-secondary);">Diagnostic scanner interface linked with dispatch network.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== TRUST SECTION ========== -->
+    <section class="trust-section section" id="trust">
+      <div class="container">
+        <div class="section-header anim-fade-up">
+          <span class="section-label">Why Trust Us</span>
+          <h2>Certified &amp; Guaranteed</h2>
+          <p>Industry certifications and guarantees that give you confidence in every diagnostic.</p>
+        </div>
+        <div class="trust-badges">
+          <div class="trust-badge anim-fade-up anim-delay-1">
+            <div class="badge-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h5>ASE Certified</h5>
+            <p>All mechanics hold active ASE certification.</p>
+          </div>
+          <div class="trust-badge anim-fade-up anim-delay-2">
+            <div class="badge-icon" style="background: rgba(var(--clr-secondary-rgb), 0.1); color: var(--clr-secondary);">
+              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+            <h5>Accuracy Guarantee</h5>
+            <p>98% diagnostic accuracy backed by warranty.</p>
+          </div>
+          <div class="trust-badge anim-fade-up anim-delay-3">
+            <div class="badge-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <h5>No Hidden Fees</h5>
+            <p>Transparent pricing with upfront estimates.</p>
+          </div>
+          <div class="trust-badge anim-fade-up anim-delay-4">
+            <div class="badge-icon" style="background: rgba(var(--clr-secondary-rgb), 0.1); color: var(--clr-secondary);">
+              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <h5>30-Min Response</h5>
+            <p>Average mechanic arrival within 30 minutes.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== GRADIENT CTA ========== -->
+    <section class="gradient-cta section" id="gradient-cta">
+      <div class="container">
+        <div class="gradient-cta-inner anim-scale-in">
+          <h2>Start Your Diagnostic Journey</h2>
+          <p>Join thousands of drivers who trust our mobile diagnostic service for transparent and accurate vehicle health insights.</p>
+          <a href="signup.html" class="btn btn-accent btn-lg" id="premium-cta">
+            Create Free Account
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <div id="footer-container"></div>
+
+  <script src="js/theme.js"></script>
+  <script src="js/rtl.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/home2.js"></script>
+</body>
+</html>
+

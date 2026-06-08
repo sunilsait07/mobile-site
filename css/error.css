@@ -1,0 +1,140 @@
+/* ============================================
+   404 ERROR PAGE STYLES
+   ============================================ */
+
+.error-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--space-xl);
+  position: relative;
+  overflow: hidden;
+  background: var(--clr-bg);
+}
+
+.error-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.error-bg::before {
+  content: '';
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(var(--clr-primary-rgb), 0.06) 0%, transparent 70%);
+  top: -150px;
+  inset-inline-end: -100px;
+}
+
+.error-top-actions {
+  position: fixed;
+  top: var(--space-md);
+  inset-inline-end: var(--space-md);
+  display: flex;
+  gap: var(--space-sm);
+  z-index: 100;
+}
+
+.error-content {
+  position: relative;
+  z-index: 1;
+  max-width: 500px;
+}
+
+/* Animated 404 */
+.error-code {
+  position: relative;
+  margin-bottom: var(--space-xl);
+}
+
+.error-code .code-number {
+  font-size: 140px;
+  font-weight: var(--fw-extrabold);
+  line-height: 1;
+  background: linear-gradient(135deg, var(--clr-primary) 0%, var(--clr-secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0.9;
+  filter: drop-shadow(0 15px 30px rgba(var(--clr-primary-rgb), 0.25));
+  user-select: none;
+  animation: floatSlow 8s ease-in-out infinite;
+  display: inline-block;
+}
+
+
+/* ---- Logo ---- */
+.error-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-2xl);
+  text-decoration: none;
+}
+
+.error-logo svg {
+  width: 44px;
+  height: 44px;
+}
+
+.error-logo-text {
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-bold);
+  color: var(--clr-text);
+}
+
+.error-logo-text span {
+  color: var(--clr-secondary);
+}
+
+
+.error-content h1 {
+  font-size: var(--fs-2xl);
+  margin-bottom: var(--space-sm);
+}
+
+.error-content .error-desc {
+  font-size: var(--fs-md);
+  color: var(--clr-text-secondary);
+  margin-bottom: var(--space-xl);
+  line-height: var(--lh-relaxed);
+}
+
+.error-actions {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+/* Check Engine Light animation */
+.check-engine-light {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: 10px 20px;
+  background: rgba(var(--clr-secondary-rgb), 0.1);
+  border: 1px solid rgba(var(--clr-secondary-rgb), 0.2);
+  border-radius: var(--radius-full);
+  margin-top: var(--space-2xl);
+  font-size: var(--fs-sm);
+  color: var(--clr-secondary);
+  font-weight: var(--fw-medium);
+}
+
+.check-engine-light .cel-icon {
+  width: 20px;
+  height: 20px;
+  animation: blink 1.5s ease infinite;
+}
+
+@media (max-width: 768px) {
+  .error-code .code-number {
+    font-size: 100px;
+  }
+}

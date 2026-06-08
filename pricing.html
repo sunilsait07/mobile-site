@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing Plans — AutoDiag</title>
+  <meta name="description" content="Transparent pricing plans for mobile diagnostic services. Basic, Professional, and Fleet plans to suit your needs.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/services.css">
+  <link rel="stylesheet" href="css/pricing.css">
+</head>
+<body>
+  <!-- NAVBAR -->
+  <div id="navbar-container"></div>
+
+  <main>
+    <!-- PAGE HERO -->
+    <section class="page-hero" id="pricing-hero">
+      <div class="container">
+        <div class="breadcrumb"><a href="index.html">Home</a><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg><span>Pricing</span></div>
+        <h1>Simple, Transparent Pricing</h1>
+        <p>Choose the plan that fits your diagnostic needs. No hidden fees, no surprises.</p>
+      </div>
+    </section>
+
+    <!-- PRICING CARDS -->
+    <section class="section" id="pricing-cards">
+      <div class="container">
+        <div class="pricing-toggle">
+          <div class="toggle-group">
+            <button class="toggle-option active" data-period="monthly">Monthly</button>
+            <button class="toggle-option" data-period="annual">Annual (Save 20%)</button>
+          </div>
+        </div>
+        <div class="pricing-grid">
+          <!-- Basic -->
+          <div class="pricing-card anim-fade-up anim-delay-1">
+            <div class="plan-icon" style="background: rgba(var(--clr-primary-rgb), 0.1); color: var(--clr-primary);">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+            <div class="plan-name">Basic</div>
+            <div class="plan-desc">Perfect for individual vehicle owners</div>
+            <div class="plan-price">
+              <span class="price"><span class="price-currency">$</span><span data-monthly="49" data-annual="39">49</span></span>
+              <span class="price-period">/month</span>
+            </div>
+            <ul class="plan-features">
+              <li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>2 OBD2 scans per month</li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Basic diagnostic reports</li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Code lookup library</li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>1 vehicle registered</li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Email support</li>
+              <li class="disabled"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Repair estimates</li>
+              <li class="disabled"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Priority scheduling</li>
+            </ul>
+            <a href="signup.html" class="btn btn-secondary" id="pricing-basic-cta">Get Started</a>
+          </div>
+
+          <!-- Professional (Popular) -->
+          <div class="pricing-card popular anim-fade-up anim-delay-2">
+            <span class="popular-badge">Most Popular</span>
+            <div class="plan-icon" style="background: rgba(var(--clr-primary-rgb), 0.1); color: var(--clr-primary);">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <div class="plan-name">Professional</div>
+            <div class="plan-desc">Best value for regular maintenance</div>
+            <div class="plan-price">
+              <span class="price"><span class="price-currency">$</span><span data-monthly="89" data-annual="71">89</span></span>
+              <span class="price-period">/month</span>
+            </div>
+            <ul class="plan-features">
+              <li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Unlimited OBD2 scans</li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Detailed diagnostic reports</li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Repair estimates included</li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>3 vehicles registered</li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Priority scheduling</li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Mechanic tracking</li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Phone &amp; email support</li>
+            </ul>
+            <a href="signup.html" class="btn btn-primary" id="pricing-pro-cta">Get Started</a>
+          </div>
+
+          <!-- Fleet -->
+          <div class="pricing-card anim-fade-up anim-delay-3">
+            <div class="plan-icon" style="background: rgba(var(--clr-secondary-rgb), 0.1); color: var(--clr-secondary);">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div class="plan-name">Fleet</div>
+            <div class="plan-desc">For businesses managing multiple vehicles</div>
+            <div class="plan-price">
+              <span class="price"><span class="price-currency">$</span><span data-monthly="149" data-annual="119">149</span></span>
+              <span class="price-period">/month</span>
+            </div>
+            <ul class="plan-features">
+              <li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Unlimited scans &amp; reports</li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Unlimited vehicles</li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Fleet management </li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Bulk repair estimates</li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Same-day priority service</li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Dedicated manager</li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>24/7 phone support</li>
+            </ul>
+            <a href="signup.html" class="btn btn-secondary" id="pricing-fleet-cta">Contact Sales</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPARISON TABLE -->
+    <section class="comparison-section section" id="comparison">
+      <div class="container">
+        <div class="section-header anim-fade-up">
+          <span class="section-label">Compare Plans</span>
+          <h2>Feature Comparison</h2>
+          <p>See what's included in each plan at a glance.</p>
+        </div>
+        <div class="comparison-table anim-fade-up">
+          <div class="table-wrapper">
+            <table class="table">
+              <thead>
+                <tr><th>Feature</th><th>Basic</th><th><span class="hide-mobile">Professional</span><span class="show-mobile">Pro</span></th><th>Fleet</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>OBD2 Scans</td><td>2/month</td><td>Unlimited</td><td>Unlimited</td></tr>
+                <tr><td>Diagnostic Reports</td><td>Basic</td><td>Detailed</td><td>Advanced</td></tr>
+                <tr><td>Code Lookup Library</td><td><svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></td><td><svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></td><td><svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></td></tr>
+                <tr><td>Repair Estimates</td><td><svg class="cross-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></td><td><svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></td><td><svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></td></tr>
+                <tr><td>Vehicles Registered</td><td>1</td><td>3</td><td>Unlimited</td></tr>
+                <tr><td>Priority Scheduling</td><td><svg class="cross-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></td><td><svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></td><td><svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></td></tr>
+                <tr><td>Mechanic Tracking</td><td><svg class="cross-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></td><td><svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></td><td><svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></td></tr>
+                <tr><td>Dedicated Manager</td><td><svg class="cross-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></td><td><svg class="cross-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></td><td><svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ========== FLEET DIAGNOSTICS SOLUTIONS ========== -->
+    <section class="section" id="fleet-solutions" style="background: var(--clr-bg);">
+      <div class="container">
+        <div class="section-header anim-fade-up">
+          <span class="section-label">Enterprise</span>
+          <h2>Fleet &amp; Business Solutions</h2>
+          <p>Optimize fleet uptime and lower maintenance costs with our bulk mobile diagnostics.</p>
+        </div>
+
+        <div class="fleet-calculator-grid anim-scale-in">
+          <!-- Left: Slider / Calculator Panel -->
+          <div class="calculator-panel">
+            <h3>Calculate Your Fleet Savings</h3>
+            <p class="panel-desc">Drag the slider to match your fleet size and see your estimated monthly package and savings.</p>
+            
+            <div class="calculator-slider-group">
+              <div class="slider-header">
+                <span>Fleet Size</span>
+                <span class="fleet-size-val" id="fleet-size-val">15 Vehicles</span>
+              </div>
+              <input type="range" min="5" max="100" value="15" step="5" class="fleet-slider" id="fleet-size-slider">
+              <div class="slider-labels">
+                <span>5</span>
+                <span>50</span>
+                <span>100+</span>
+              </div>
+            </div>
+
+            <div class="savings-display-grid">
+              <div class="savings-card">
+                <span class="savings-label">Estimated Package</span>
+                <span class="savings-value" id="package-cost">$450<span style="font-size: var(--fs-xs); font-weight: var(--fw-medium);">/mo</span></span>
+              </div>
+              <div class="savings-card savings-highlight">
+                <span class="savings-label">Avg. Monthly Savings</span>
+                <span class="savings-value" id="savings-val">$300<span style="font-size: var(--fs-xs); font-weight: var(--fw-medium);">/mo</span></span>
+              </div>
+            </div>
+            
+            <a href="contact.html?subject=fleet" class="btn btn-primary btn-lg btn-block" style="margin-top: var(--space-lg);">Inquire About Fleet Package</a>
+          </div>
+
+          <!-- Right: SLAs / Features List -->
+          <div class="fleet-info-panel">
+            <h3>Enterprise-Grade SLAs Included</h3>
+            <p>Every business account is backed by industry-leading service level agreements to keep your vehicles moving.</p>
+            
+            <div class="sla-list">
+              <div class="sla-item">
+                <div class="sla-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <div>
+                  <h4>Under 2-Hour Dispatch Guarantee</h4>
+                  <p>Priority dispatching ensures a diagnostic technician arrives at your depot or jobsite within 2 hours of a request.</p>
+                </div>
+              </div>
+              
+              <div class="sla-item">
+                <div class="sla-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                </div>
+                <div>
+                  <h4>API &amp; Dashboard Integration</h4>
+                  <p>Access live diagnostic reports, telemetry data, and maintenance schedules through our developer API or custom portal.</p>
+                </div>
+              </div>
+              
+              <div class="sla-item">
+                <div class="sla-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><path d="M20 8v6M23 11h-6"/></svg>
+                </div>
+                <div>
+                  <h4>Dedicated Technical Account Manager</h4>
+                  <p>Direct access to an ASE-certified team leader who oversees all diagnostic history and coordinates fleet pre-scans.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING FAQ -->
+    <section class="section" id="pricing-faq">
+      <div class="container">
+        <div class="section-header anim-fade-up"><span class="section-label">FAQ</span><h2>Pricing Questions</h2><p>Common questions about our pricing and plans.</p></div>
+        <div class="pricing-faq">
+          <div class="accordion-item"><button class="accordion-header">Can I change plans later?<svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><div class="accordion-content"><div class="accordion-content-inner">Yes! You can upgrade or downgrade your plan at any time. When upgrading, the new features are available immediately. When downgrading, the change takes effect at the end of your billing cycle.</div></div></div>
+          <div class="accordion-item"><button class="accordion-header">Is there a free trial?<svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><div class="accordion-content"><div class="accordion-content-inner">We offer a 7-day free trial on all plans. You can explore all features before committing. No credit card required to start your trial.</div></div></div>
+          <div class="accordion-item"><button class="accordion-header">What payment methods do you accept?<svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><div class="accordion-content"><div class="accordion-content-inner">We accept all major credit cards (Visa, MasterCard, American Express), PayPal, and bank transfers for Fleet plans. All payments are processed securely.</div></div></div>
+          <div class="accordion-item"><button class="accordion-header">Can I cancel anytime?<svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><div class="accordion-content"><div class="accordion-content-inner">Absolutely. There are no long-term contracts. You can cancel your subscription at any time, and you'll retain access until the end of your current billing period.</div></div></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <div id="footer-container"></div>
+
+  <script src="js/theme.js"></script>
+  <script src="js/rtl.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/pricing.js"></script>
+</body>
+</html>
+
