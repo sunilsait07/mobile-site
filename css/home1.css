@@ -910,7 +910,7 @@
 /* ---- Why Choose Us ---- */
 .features-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: var(--space-lg);
 }
 
@@ -980,6 +980,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--space-lg);
+  align-items: stretch;
 }
 
 .service-card {
@@ -988,6 +989,9 @@
   border-radius: var(--radius-lg);
   overflow: hidden;
   transition: all var(--transition-base);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .service-card:hover {
@@ -1003,6 +1007,9 @@
 
 .service-card-body {
   padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 .service-card-body h4 {
@@ -1017,6 +1024,8 @@
 
 .service-card-body .btn {
   padding: 8px 20px;
+  margin-top: auto;
+  align-self: flex-start;
 }
 
 /* ---- Testimonials ---- */
@@ -1028,6 +1037,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--space-lg);
+  align-items: stretch;
 }
 
 .testimonial-card {
@@ -1037,6 +1047,9 @@
   padding: var(--space-xl);
   position: relative;
   transition: all var(--transition-base);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .testimonial-card:hover {

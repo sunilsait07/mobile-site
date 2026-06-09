@@ -169,6 +169,8 @@
 
   .footer-bottom-links {
     justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--space-md);
   }
 }
 
@@ -289,7 +291,7 @@
   flex-shrink: 0;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   .newsletter-input-group {
     flex-direction: column;
     background: transparent;

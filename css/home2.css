@@ -428,6 +428,7 @@
   grid-template-columns: repeat(3, 1fr);
   gap: var(--space-lg);
   padding-bottom: var(--space-md);
+  align-items: stretch;
 }
 
 .showcase-card {
@@ -436,6 +437,9 @@
   border-radius: var(--radius-xl);
   overflow: hidden;
   transition: all var(--transition-base);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .showcase-card:hover {
@@ -451,6 +455,9 @@
 
 .showcase-card-body {
   padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 .showcase-card-body h4 {
@@ -460,6 +467,11 @@
 .showcase-card-body p {
   font-size: var(--fs-sm);
   margin-bottom: var(--space-md);
+}
+
+.showcase-card-body .btn {
+  margin-top: auto;
+  align-self: flex-start;
 }
 
 /* ---- Dashboard Preview ---- */

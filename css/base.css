@@ -229,3 +229,59 @@ input, textarea, select {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+/* ============================================
+   LOGO ANIMATION & HERO BACKGROUND IMAGES
+   ============================================ */
+
+
+
+/* Theme-Aware Hero Backgrounds with legibility overlays */
+.hero, .hero-premium, .page-hero {
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  position: relative;
+}
+
+#hero {
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.96)), url('../assets/images/hero-bg-main.png') !important;
+}
+[data-theme="dark"] #hero {
+  background-image: linear-gradient(to bottom, rgba(15, 23, 42, 0.88), rgba(15, 23, 42, 0.96)), url('../assets/images/hero-bg-main.png') !important;
+}
+
+#hero-premium {
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.96)), url('../assets/images/hero-bg-home2.png') !important;
+}
+[data-theme="dark"] #hero-premium {
+  background-image: linear-gradient(to bottom, rgba(15, 23, 42, 0.88), rgba(15, 23, 42, 0.96)), url('../assets/images/hero-bg-home2.png') !important;
+}
+
+#about-hero {
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.96)), url('../assets/images/hero-bg-about.png') !important;
+}
+[data-theme="dark"] #about-hero {
+  background-image: linear-gradient(to bottom, rgba(15, 23, 42, 0.88), rgba(15, 23, 42, 0.96)), url('../assets/images/hero-bg-about.png') !important;
+}
+
+#services-hero {
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.96)), url('../assets/images/hero-bg-services.png') !important;
+}
+[data-theme="dark"] #services-hero {
+  background-image: linear-gradient(to bottom, rgba(15, 23, 42, 0.88), rgba(15, 23, 42, 0.96)), url('../assets/images/hero-bg-services.png') !important;
+}
+
+#pricing-hero {
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.96)), url('../assets/images/hero-bg-pricing.png') !important;
+}
+[data-theme="dark"] #pricing-hero {
+  background-image: linear-gradient(to bottom, rgba(15, 23, 42, 0.88), rgba(15, 23, 42, 0.96)), url('../assets/images/hero-bg-pricing.png') !important;
+}
+
+#contact-hero {
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.96)), url('../assets/images/hero-bg-contact.png') !important;
+}
+[data-theme="dark"] #contact-hero {
+  background-image: linear-gradient(to bottom, rgba(15, 23, 42, 0.88), rgba(15, 23, 42, 0.96)), url('../assets/images/hero-bg-contact.png') !important;
+}

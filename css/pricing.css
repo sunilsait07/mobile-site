@@ -12,12 +12,11 @@
   justify-content: center;
   margin-bottom: var(--space-2xl);
 }
-
 .pricing-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--space-lg);
-  align-items: start;
+  align-items: stretch;
   max-width: 1000px;
   margin: 0 auto;
 }
@@ -30,6 +29,9 @@
   text-align: center;
   position: relative;
   transition: all var(--transition-base);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .pricing-card:hover {
@@ -125,6 +127,7 @@
   gap: var(--space-sm);
   margin-bottom: var(--space-xl);
   text-align: start;
+  flex-grow: 1;
 }
 
 .pricing-card .plan-features li {
@@ -153,6 +156,7 @@
 
 .pricing-card .btn {
   width: 100%;
+  margin-top: auto;
 }
 
 /* ---- Feature Comparison Table ---- */
